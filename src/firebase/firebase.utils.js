@@ -1,6 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
-import 'firebase/analytics';
+import 'firebase/database';
+// import 'firebase/analytics';
 
 const config = {
     apiKey: "AIzaSyCntEcKO-Bv7-ua8GxHdAG_A9FP1hqmceg",
@@ -13,11 +14,19 @@ const config = {
     measurementId: "G-420SK97L6V"
 };
 
+export const getDataFromFirebase = async () => {
+    const geoData =  
+         await firebase.database().ref('/').on('value', (snapshot) =>{
+            return snapshot.val()
+        })
+    return geoData;
+}
+
 
 firebase.initializeApp(config);
-firebase.analytics();
+// firebase.analytics();
 
 export const firestore = firebase.firestore();
-export const analytics = firebase.analytics();
+// export const analytics = firebase.analytics();
 
 export default firebase;
