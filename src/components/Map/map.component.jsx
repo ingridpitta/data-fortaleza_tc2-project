@@ -25,22 +25,6 @@ class MapComponent extends Component {
             await this.setState({geoJsonData: geoData})
         }
     }
-    // componentDidMount =  async (getData) => {
-    //     const data =  () =>  getData();
-    //     this.setState({geoJson: data})
-    //     console.log("state", this.state)
-        // .then((result, error) => {
-        //     if (result){
-        //         this.setState({geoJson:result})
-        //         console.log("data",result)
-        //         console.log("state", this.state)
-        //     } else {
-        //         console.log("erro",error)
-        //     }
-        // })
-    // }
-
-    
 
     render(){
         const position = [this.state.lat, this.state.lng];
