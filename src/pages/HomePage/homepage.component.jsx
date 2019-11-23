@@ -5,9 +5,7 @@ import './homepage.styles.scss';
 
 const HomePage = () => (
     <div className="homepage">
-        <div className="homepage-nav--container">
-            <Nav/>
-        </div>
+        <Nav/>
         <div className="homepage-body--container">
             <div className="homepage-map--container">
                 <MapComponent/>

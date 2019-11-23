@@ -3,11 +3,11 @@
 @import '../../styles/mixins';
 
 .homepage{
-    .homepage-nav--container{
-        z-index:1;
-        box-shadow: 0.09375rem 0.125rem 0.125rem 0.09375rem rgba(0, 0, 0, 0.16);
-    }
-
+    //  .homepage-nav--container{
+    //     z-index:1;
+    //     box-shadow: 0.09375rem 0.125rem 0.125rem 0.09375rem rgba(0, 0, 0, 0.16);
+    // }
+    
     .homepage-body--container{
         @include flex(left,center,column);
 
