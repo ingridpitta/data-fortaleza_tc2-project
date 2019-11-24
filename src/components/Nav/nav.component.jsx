@@ -19,7 +19,6 @@ class Nav extends Component {
         }
     }
 
-
     openProfile = () => {
         this.setState({showProfile: !this.state.showProfile})
     }
@@ -80,14 +79,22 @@ class Nav extends Component {
                             </div>
                             {showProfile ?
 
-                                <div>
+                                <div className="nav--profileName--container">
                                     <div className="nav--profileName">
                                         <h2>Pedro Alencar</h2>
                                         <img onClick={this.openProfile} src={OpenProfileIcon} alt="Ver Perfil"/>
                                     </div>
 
-                                    <div onClick={this.openProfile} className="nav--profileOpen">
-                                    
+                                    <div className="nav--profileOpen">
+                                        <div className="nav--profileOpen--message">
+                                            <h3>Já está disponível o resultado da pesquisa de opinião sobre o VLT Parangaba-Mucuripe. <span>Consulte Agora</span></h3>
+                                        </div>
+                                        <div className="nav--profileOpen--message">
+                                            <h3>Já está disponível o resultado da pesquisa de opinião sobre o VLT Parangaba-Mucuripe. <span>Consulte Agora</span></h3>
+                                        </div>
+                                        <div className="nav--profileOpen--btn">
+                                            <Link to="/messages">VER TODAS</Link>
+                                        </div>
                                     </div>
                                 </div>
                                 :
