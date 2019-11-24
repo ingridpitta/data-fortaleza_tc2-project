@@ -33,11 +33,19 @@ a{
                 height: 30px;
                 margin-right: 20px;
                 outline:none;
+                color: $gray-text;
+                font-weight: normal;
+                font-family: $font-size-medium;
+                font-size: 0.885rem;
             }
 
             .nav--statusSearch{
                 position:absolute;
                 right: 380px;
+                width: 15px;
+                height: 15px;
+                opacity: 0.8;
+                cursor:pointer;
             }
 
             .nav--statusMessage{
@@ -59,8 +67,8 @@ a{
                     height: 13px;
                     width: 13px;
                     position: absolute;
-                    top: 12px;
-                    right: 305px;
+                    top: 10px;
+                    right: 302px;
                     color: $white;
                     font-weight: bold;
                     font-size: $font-size-small;
@@ -87,8 +95,8 @@ a{
                     height: 13px;
                     width: 13px;
                     position: absolute;
-                    top: 12px;
-                    right: 245px;
+                    top: 10px;
+                    right: 242px;
                     color: $white;
                     font-weight: bold;
                     font-size: $font-size-small;
