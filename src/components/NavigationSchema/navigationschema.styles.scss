@@ -19,9 +19,9 @@ a{
         @include flex (center, left, row);
 
         a{
+            border-right: 0.1px solid $light-gray;
             li{
                 font-size: $font-size-terciario;
-                border-right: 0.1px solid $light-gray;
                 padding: 0 10px;
                 cursor:pointer;
             }
@@ -29,10 +29,10 @@ a{
             #selected{
                 color: $cor-secundaria;
             }
+        }
 
-            li:last-child{
-                border-right: none;
-            }
+        a:last-child{
+            border-right: none;
         }
     }
 
