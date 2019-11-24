@@ -1,0 +1,55 @@
+@import '../../styles/extends'; 
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+a{
+    text-decoration: none;
+    color:$gray-text
+}
+
+.navigationSchema{
+    ul{
+        font-family: $font-padrao;
+        color: $gray-text;
+        list-style:none;
+        font-weight: bold;
+    }
+
+    ul:first-child{
+        @include flex (center, left, row);
+
+        a{
+            li{
+                font-size: $font-size-terciario;
+                border-right: 0.1px solid $light-gray;
+                padding: 0 10px;
+                cursor:pointer;
+            }
+
+            #selected{
+                color: $cor-secundaria;
+            }
+
+            li:last-child{
+                border-right: none;
+            }
+        }
+    }
+
+     ul:last-child{
+         @include flex (center, left, row);
+         font-weight: normal;
+
+         a{
+              li:first-child{
+                color:$gray-text
+            }
+
+            li{
+                font-size: $font-size-small;
+                padding: 0 10px;
+                cursor:pointer;
+            }
+         }
+    }
+}

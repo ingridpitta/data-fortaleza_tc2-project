@@ -1,0 +1,21 @@
+@import '../../styles/extends'; 
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.mapPage{
+    .mapPage-body--container{
+        @include flex(left,center,column);
+
+        .mapPage-map--container{
+
+        }
+
+        .mapPage-data--container{
+            
+        }
+    }
+
+    .mapPage-footer--container{
+            
+    }
+}

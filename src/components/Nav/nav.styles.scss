@@ -2,6 +2,10 @@
 @import '../../styles/variables';
 @import '../../styles/mixins';
 
+a{
+    text-decoration: none;
+    color:$gray-text;
+}
 
 .nav{
     width: 95%;
@@ -56,7 +60,7 @@
                     width: 13px;
                     position: absolute;
                     top: 12px;
-                    right: 300px;
+                    right: 305px;
                     color: $white;
                     font-weight: bold;
                     font-size: $font-size-small;
@@ -84,7 +88,7 @@
                     width: 13px;
                     position: absolute;
                     top: 12px;
-                    right: 242px;
+                    right: 245px;
                     color: $white;
                     font-weight: bold;
                     font-size: $font-size-small;
@@ -122,9 +126,13 @@
                     font-family: $font-padrao;
                 }
 
-                img{
-                    margin-left: 10px;
-                    cursor:pointer;
+                a{
+                    
+                    img{
+                        margin-left: 10px;
+                        padding-top:20px;
+                        cursor:pointer;
+                    }
                 }
             }
         }
