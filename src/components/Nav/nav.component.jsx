@@ -112,3 +112,6 @@ class Nav extends Component {
 } 
 
 export default Nav;
+
+
+//Trocar o conteúdo do dropdown do perfil com o da mesagem !!!
