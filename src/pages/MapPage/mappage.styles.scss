@@ -3,12 +3,12 @@
 @import "../../styles/mixins";
 
 .mapPage {
+  max-width: 100vw;
+  width: 100%;
   .mapPage-body--container {
     @include flex(left, space-between, row);
     margin-left: 50px;
     margin-bottom: 100px;
-    max-width: 100vw;
-    width: 100%;
     position: relative;
 
     .mapPage-map--container {
@@ -20,9 +20,9 @@
     }
 
     .mapPage-data--container {
-      background-color: red;
-      height: 300px;
-      width: 50px;
+      width: 50%;
+      max-width: 500px;
+      text-align: left;
     }
   }
 

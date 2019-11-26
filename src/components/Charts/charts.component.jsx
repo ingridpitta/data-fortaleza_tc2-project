@@ -6,7 +6,7 @@ class Charts extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      chartData: []
+      chartData: null
     };
   }
 
@@ -21,41 +21,42 @@ class Charts extends Component {
   getData = () => {
     const myData = this.props.rendaMedia.features.map(variable => [
       variable.properties.NOME,
-      variable.properties.RENDA_M
+      parseFloat(variable.properties.RENDA_M)
     ]);
 
-    const newArray = [];
+    // const newArray = [];
 
-    newArray.push(
-      ["bairro", "renda"],
-      myData.map(item => [item[0], parseFloat(item[1])])
-    );
+    // newArray.push([[("number", "renda"), ("string", "bairro")]].concat(myData));
 
-    return [newArray[0], newArray[1]];
+    // return [newArray[0]];
+    return myData;
   };
 
   render() {
-    const newData = this.state.chartData;
-    console.log("newData", newData);
-
-    console.log("test", this.state.chartData);
+    const data = [[("string", "bairro"), ("number", "renda")]].concat(
+      this.state.chartData
+    );
+    console.log("test", data);
     return (
       <div className="charts">
         <Chart
           width={"500px"}
-          height={"300px"}
+          height={"500px"}
           chartType="BarChart"
           loader={<div>Loading Chart</div>}
-          data={[this.state.chartData]}
+          data={data}
           options={{
-            title: "Population of Largest U.S. Cities",
-            chartArea: { width: "50%" },
+            title: "Renda Média",
+            chartArea: { width: "500px" },
+            isStacked: true,
+            colors: ["#FF0058", "#FF0058"],
             hAxis: {
-              title: "Total Population",
-              minValue: 0
+              title: "renda",
+              minValue: 0,
+              maxValue: 3
             },
             vAxis: {
-              title: "City"
+              title: "bairro"
             }
           }}
           // For tests
@@ -70,3 +71,4 @@ export default Charts;
 // data={[this.state.chartData]}
 //data={[["Task", "Hours per Day"], newData]}
 //data={[newData]}
+//myData.map(item => [parseFloat(item[0]), item[1]])
