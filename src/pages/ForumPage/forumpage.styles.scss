@@ -1,0 +1,195 @@
+@import "../../styles/extends";
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+ul {
+  list-style: none;
+}
+
+.forumPage {
+  margin: 0 4%;
+  font-family: $font-padrao;
+
+  .forumPage--intro {
+    @include flex(baseline, space-between, row);
+
+    .forumPage--title {
+      text-align: left;
+
+      h1 {
+        font-size: $font-size-medium;
+        color: $cor-secundaria;
+        font-weight: bold;
+        margin-bottom: 0;
+      }
+
+      h3 {
+        font-size: 0.885rem;
+        color: $gray-text;
+        font-weight: lighter;
+        margin-top: 10px;
+      }
+    }
+
+    button {
+      outline: none;
+      border: 1px solid $cor-secundaria;
+      color: $cor-secundaria;
+      border-radius: 100px;
+      padding: 10px;
+      background-color: none;
+      font-weight: bold;
+      cursor: pointer;
+
+      &:hover {
+        color: $white;
+        background-color: $cor-secundaria;
+      }
+    }
+  }
+
+  .forumPage--main {
+    @include flex(top, space-between, row);
+    margin-top: 20px;
+
+    .forumPage--main-indice {
+      ul {
+        text-align: left;
+        padding-left: 0;
+        width: 150px;
+
+        li {
+          font-size: 0.885rem;
+          color: $gray-text;
+          font-weight: bold;
+          margin-top: 10px;
+          cursor: pointer;
+          padding: 5px 0;
+          padding-left: 5px;
+
+          &:hover {
+            background: rgba(255, 0, 88, 0.1);
+            color: $cor-secundaria;
+            border-radius: 100px;
+          }
+        }
+
+        li:first-child {
+          font-size: $font-size-padrao;
+          border-bottom: 0.5px solid $gray-text;
+          padding-bottom: 8px;
+          cursor: default;
+          margin-top: 0;
+
+          &:hover {
+            background: transparent;
+            color: $gray-text;
+            border-radius: 0;
+          }
+        }
+      }
+    }
+
+    .forumPage--main-content {
+
+      ul {
+        @include flex(top, space-between, row);
+        border-bottom: 0.5px solid $gray-text;
+        padding-left: 0;
+        width: 90%;
+        margin-left: auto;
+        margin-right: 0;
+
+        li {
+          cursor: default;
+          padding: 5px 0 8px 30px;
+          color: $gray-text;
+          font-size: $font-size-padrao;
+          font-weight: bold;
+        }
+
+        li:last-child {
+          padding-right: 30px;
+        }
+      }
+
+      .forumPage--content-discussion {
+        @include flex(center, space-between, row);
+        width: 80%;
+        margin: 0 auto;
+        padding-left: 60px;
+
+        .forumPage--discussion-topic {
+          @include flex(center, left, row);
+
+          img {
+              border-radius: 50%;
+              margin-right: 20px;
+          }
+
+          .forumPage--topic-description {
+            width: 60%;
+            text-align: left;
+            margin-left: 0;
+
+            h3 {
+                font-size: $font-size-padrao;
+                color: $gray-text;
+                font-weight: bold;
+                margin-top: 0;
+            }
+
+            p {
+                text-align: justify;
+                font-size: 0.885rem;
+                font-weight: lighter;
+                color: $gray-text;
+            }
+
+            h4 {
+                text-align: justify;
+                font-size: $font-size-terciario;
+                font-weight: lighter;
+                color: $gray-text;
+                margin-bottom:0;
+            }
+          }
+        }
+
+        .forumPage--topic-tag {
+          h2 {
+          }
+        }
+
+        .forumPage--topic-status {
+          .forumPage--status-answers {
+              @include flex (center, center, row);
+
+            img {
+            }
+
+            h3 {
+            }
+          }
+
+          .forumPage--status-likes {
+              @include flex (center, center, row);
+              
+            img {
+            }
+
+            h3 {
+            }
+          }
+        }
+
+        .forumPage--pagination {
+          ul {
+            li {
+            }
+          }
+        }
+      }
+    }
+  }
+}

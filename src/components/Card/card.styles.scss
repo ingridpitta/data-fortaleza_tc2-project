@@ -1,124 +1,133 @@
-@import '../../styles/extends'; 
-@import '../../styles/variables';
-@import '../../styles/mixins';
+@import "../../styles/extends";
+@import "../../styles/variables";
+@import "../../styles/mixins";
 
-
-span{
-    color: $cor-secundaria;
+span {
+  color: $cor-secundaria;
 }
 
-.card--withImage{
-    background-color: $white;
-    width: 250px;
-    heigth: 350px;
-    z-index: 2;
-    border-radius: 5px;
-    box-shadow: 0.125rem 0.125rem 0.125rem 0.125rem rgba(0, 0, 0, 0.16);
-    transition: all 0.3s ease 0s;
-    transform: scale(1);
+.card--withImage {
+  background-color: $white;
+  width: 250px;
+  // height: 350px;
+  z-index: 2;
+  border-radius: 5px;
+  box-shadow: 0.125rem 0.125rem 0.125rem 0.125rem rgba(0, 0, 0, 0.16);
+  transition: all 0.3s ease 0s;
+  transform: scale(1);
 
-    &:hover{
-        box-shadow: 0.125rem 0.125rem 0.125rem 0.125rem rgba(67, 65, 65, 0.3);
-        transform: scale(1.1); 
+  &:hover {
+    box-shadow: 0.125rem 0.125rem 0.125rem 0.125rem rgba(67, 65, 65, 0.3);
+    transform: scale(1.1);
+  }
+
+  .imageCard {
+    height: 160px;
+
+    img {
+      width: 250px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
     }
+  }
 
-    .imageCard{
-        height: 160px;
+  h1 {
+    font-family: $font-padrao;
+    font-size: 0.885rem;
+    font-weight: bold;
+    color: $gray-text;
+    padding: 0 20px;
+  }
 
-        img{
-            width: 250px;
-            border-top-left-radius: 5px;
-            border-top-right-radius: 5px;
-        }
-    }
-    
+  p {
+    font-family: $font-padrao;
+    font-size: $font-size-terciario;
+    font-weight: normal;
+    color: $gray-text;
+    text-align: justify;
+    padding: 0 20px;
+  }
 
-    h1{
-        font-family: $font-padrao;
-        font-size: 0.885rem;
-        font-weight: bold;
-        color: $gray-text;
-        padding: 0 20px;
-    }
+  .btnCard {
+    text-align: right;
+    padding: 30px 20px;
 
-    p{
+    a {
+      button {
+        background-color: none;
         font-family: $font-padrao;
         font-size: $font-size-terciario;
-        font-weight: normal;
-        color: $gray-text;
-        text-align: justify;
-        padding: 0 20px;
-    }
-
-    .btnCard{
-        text-align: right;
-        padding: 30px 20px;
-
-        a{
-            button{
-                background-color: $cor-secundaria;
-                font-family: $font-padrao;
-                font-size: $font-size-terciario;
-                font-weight: bold;
-                color: $white;
-                border:none;
-                border-radius: 15px;
-                cursor:pointer;
-            }
-        }
-    }
-}
-
-.card--noImage{
-    padding-top: 20px;
-    background-color: $white;
-    width: 250px;
-    height: 180px;
-    z-index: 2;
-    border-radius: 5px;
-    box-shadow: 0.125rem 0.125rem 0.125rem 0.125rem rgba(0, 0, 0, 0.16);
-    transition: all 0.3s ease 0s;
-    transform: scale(1);
-
-    &:hover{
-        box-shadow: 0.125rem 0.125rem 0.125rem 0.125rem rgba(67, 65, 65, 0.3);
-        transform: scale(1.1); 
-    }
-    
-
-    h1{
-        font-family: $font-padrao;
-        font-size: $font-size-medium;
         font-weight: bold;
         color: $cor-secundaria;
-        padding: 0 20px;
-        text-align: left;
-    }
+        border: 1px solid $cor-secundaria;
+        border-radius: 15px;
+        cursor: pointer;
+        outline: none;
 
-    p{
+        &:hover {
+          background-color: $cor-secundaria;
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
+.card--noImage {
+  padding-top: 20px;
+  background-color: $white;
+  width: 250px;
+  height: 180px;
+  z-index: 2;
+  border-radius: 5px;
+  box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.16);
+  transition: all 0.3s ease 0s;
+  transform: scale(1);
+
+  &:hover {
+    box-shadow: 0.125rem 0.125rem 0.125rem 0.125rem rgba(67, 65, 65, 0.3);
+    transform: scale(1.1);
+  }
+
+  h1 {
+    font-family: $font-padrao;
+    font-size: $font-size-medium;
+    font-weight: bold;
+    color: $cor-secundaria;
+    padding: 0 20px;
+    text-align: left;
+  }
+
+  p {
+    font-family: $font-padrao;
+    font-size: $font-size-terciario;
+    font-weight: normal;
+    color: $gray-text;
+    text-align: justify;
+    padding: 0 20px;
+  }
+
+  .btnCard {
+    text-align: right;
+    padding: 30px 20px;
+
+    a {
+      button {
+        background-color: none;
         font-family: $font-padrao;
         font-size: $font-size-terciario;
-        font-weight: normal;
-        color: $gray-text;
-        text-align: justify;
-        padding: 0 20px;
-    }
+        font-weight: bold;
+        color: $cor-secundaria;
+        border: 1px solid $cor-secundaria;
+        border-radius: 15px;
+        cursor: pointer;
+        outline: none;
 
-    .btnCard{
-        text-align: right;
-        padding: 30px 20px;
-
-        a{
-            button{
-                background-color: $cor-secundaria;
-                font-family: $font-padrao;
-                font-size: $font-size-terciario;
-                font-weight: bold;
-                color: $white;
-                border:none;
-                border-radius: 15px;
-                cursor:pointer;
-            }
+        &:hover {
+          background-color: $cor-secundaria;
+          color: $white;
         }
+      }
     }
+  }
 }

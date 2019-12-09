@@ -13,6 +13,14 @@ class MapComponent extends Component {
     };
   }
 
+  // onEachFeature = (feature, layer) => {
+  //   layer.on({
+  //     mouseover:,
+  //     mouseout:,
+  //     click:
+  //   })
+  // }
+
   render() {
     const { bairrosFortaleza, rendaMedia } = this.props;
     const position = [this.state.lat, this.state.lng];
@@ -55,3 +63,5 @@ class MapComponent extends Component {
 }
 
 export default MapComponent;
+
+//{ /*onEachFeature={this.onEachFeature.bind(this)}*/}

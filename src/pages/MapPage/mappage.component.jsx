@@ -26,7 +26,6 @@ class MapPage extends Component {
             <Charts {...this.state} />
           </div>
         </div>
-        <div className="mapPage-footer--container"></div>
       </div>
     );
   }
