@@ -78,10 +78,11 @@ ul {
 
         li:first-child {
           font-size: $font-size-padrao;
-          border-bottom: 0.5px solid $gray-text;
+          border-bottom: 1px solid $light-gray;
           padding-bottom: 8px;
           cursor: default;
           margin-top: 0;
+          box-shadow: 0 0.125rem 0.1rem rgba(0, 0, 0, 0.04);
 
           &:hover {
             background: transparent;
@@ -95,7 +96,8 @@ ul {
     .forumPage--main-content {
       ul {
         @include flex(top, space-between, row);
-        border-bottom: 0.5px solid $gray-text;
+        border-bottom: 1px solid $light-gray;
+        box-shadow: 0 0.125rem 0.1rem rgba(0, 0, 0, 0.04);
         padding-left: 0;
         width: 90%;
         margin-left: auto;
@@ -125,7 +127,7 @@ ul {
         margin-right: 30px;
         margin-left: 100px;
 
-        border-bottom: 0.5px solid $light-gray;
+        border-bottom: 0.1px solid $lighter-gray;
         padding-bottom: 20px;
 
         .forumPage--discussion-topic {
