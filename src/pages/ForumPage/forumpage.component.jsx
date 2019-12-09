@@ -44,8 +44,10 @@ class ForumPage extends Component {
           <div className="forumPage--main-content">
             <ul>
               <li>Discussão</li>
-              <li>Tópicos</li>
-              <li>Respostas</li>
+              <div className="forumPage--main-contentList">
+                <li>Tópicos</li>
+                <li>Respostas</li>
+              </div>
             </ul>
             <div className="forumPage--content-discussion">
               <div className="forumPage--discussion-topic">
@@ -62,17 +64,19 @@ class ForumPage extends Component {
                   <h4>Por Matheus - há 10min</h4>
                 </div>
               </div>
-              <div className="forumPage--topic-tag">
-                <h2>EVENTOS</h2>
-              </div>
-              <div className="forumPage--topic-status">
-                <div className="forumPage--status-answers">
-                  <img src="" alt="user" />
-                  <h3>Respostas (100)</h3>
+              <div className="forumPage--topic-container">
+                <div className="forumPage--topic-tag">
+                  <h2>EVENTOS</h2>
                 </div>
-                <div className="forumPage--status-likes">
-                  <img src="" alt="user" />
-                  <h3>Curtidas (230)</h3>
+                <div className="forumPage--topic-status">
+                  <div className="forumPage--status-answers">
+                    <img src="" alt="user" />
+                    <h3>Respostas (100)</h3>
+                  </div>
+                  <div className="forumPage--status-likes">
+                    <img src="" alt="user" />
+                    <h3>Curtidas (230)</h3>
+                  </div>
                 </div>
               </div>
             </div>
