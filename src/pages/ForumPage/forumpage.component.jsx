@@ -26,7 +26,7 @@ class ForumPage extends Component {
             <ul>
               <li>Escolha um Tópico</li>
               <li>Todos (3.930)</li>
-              <li>Em Alta (50)</li>
+              <li id="selected--listItem">Em Alta (50)</li>
               <li>Seguindo (300)</li>
               <li>Eventos (20)</li>
               <li>Inovação (100)</li>
@@ -42,7 +42,7 @@ class ForumPage extends Component {
             </ul>
           </div>
           <div className="forumPage--main-content">
-            <ul>
+            <ul className="forumPage--list">
               <li>Discussão</li>
               <div className="forumPage--main-contentList">
                 <li>Tópicos</li>
@@ -80,10 +80,76 @@ class ForumPage extends Component {
                 </div>
               </div>
             </div>
+
+            <div className="forumPage--content-discussion">
+              <div className="forumPage--discussion-topic">
+                <img src="" alt="user" />
+                <div className="forumPage--topic-description">
+                  <h3>Oficina de Fotografia no Dia das Crianças</h3>
+                  <p>
+                    Tópico para pensar uma oficina de fotografia no Dia das
+                    Crianças (12.10). Precisamos de voluntários para ajudar com
+                    a produção, conseguir material, divulgação, professores,
+                    alimentação, etc. Ainda precisamos definir o local do
+                    evento.
+                  </p>
+                  <h4>Por Matheus - há 10min</h4>
+                </div>
+              </div>
+              <div className="forumPage--topic-container">
+                <div className="forumPage--topic-tag">
+                  <h2>EVENTOS</h2>
+                </div>
+                <div className="forumPage--topic-status">
+                  <div className="forumPage--status-answers">
+                    <img src="" alt="user" />
+                    <h3>Respostas (100)</h3>
+                  </div>
+                  <div className="forumPage--status-likes">
+                    <img src="" alt="user" />
+                    <h3>Curtidas (230)</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="forumPage--content-discussion">
+              <div className="forumPage--discussion-topic">
+                <img src="" alt="user" />
+                <div className="forumPage--topic-description">
+                  <h3>Oficina de Fotografia no Dia das Crianças</h3>
+                  <p>
+                    Tópico para pensar uma oficina de fotografia no Dia das
+                    Crianças (12.10). Precisamos de voluntários para ajudar com
+                    a produção, conseguir material, divulgação, professores,
+                    alimentação, etc. Ainda precisamos definir o local do
+                    evento.
+                  </p>
+                  <h4>Por Matheus - há 10min</h4>
+                </div>
+              </div>
+              <div className="forumPage--topic-container">
+                <div className="forumPage--topic-tag">
+                  <h2>EVENTOS</h2>
+                </div>
+                <div className="forumPage--topic-status">
+                  <div className="forumPage--status-answers">
+                    <img src="" alt="user" />
+                    <h3>Respostas (100)</h3>
+                  </div>
+                  <div className="forumPage--status-likes">
+                    <img src="" alt="user" />
+                    <h3>Curtidas (230)</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div className="forumPage--pagination">
-              <ul>
+              <ul className="paginationList">
                 <li>{"<"}</li>
-                <li>1</li>
+                <li>
+                  <span>1</span>
+                </li>
                 <li>2</li>
                 <li>3</li>
                 <li>4</li>

@@ -58,7 +58,7 @@ ul {
       ul {
         text-align: left;
         padding-left: 0;
-        width: 150px;
+        width: 160px;
 
         li {
           font-size: 0.885rem;
@@ -69,11 +69,16 @@ ul {
           padding: 5px 0;
           padding-left: 5px;
 
-          &:hover {
+          &:hover{
             background: rgba(255, 0, 88, 0.1);
             color: $cor-secundaria;
             border-radius: 100px;
           }
+        }
+
+        #selected--listItem{
+            color: $cor-secundaria;
+            border-radius: 100px;
         }
 
         li:first-child {
@@ -94,7 +99,7 @@ ul {
     }
 
     .forumPage--main-content {
-      ul {
+      .forumPage--list {
         @include flex(top, space-between, row);
         border-bottom: 1px solid $light-gray;
         box-shadow: 0 0.125rem 0.1rem rgba(0, 0, 0, 0.04);
@@ -126,6 +131,7 @@ ul {
         padding-left: 0;
         margin-right: 30px;
         margin-left: 100px;
+        margin-top: 20px;
 
         border-bottom: 0.1px solid $lighter-gray;
         padding-bottom: 20px;
@@ -221,13 +227,32 @@ ul {
           }
         }
 
-        .forumPage--pagination {
-          ul {
+        
+      }
+
+      .forumPage--pagination {
+          margin: 0 auto;
+          width: 90%;
+
+          .paginationList {
+          @include flex(center, center, row);
+          margin-top: 30px;
+          margin-left:30%;
+
             li {
+              font-size: 0.885rem;
+              color: $gray-text;
+              font-weight: bold;
+              width: 25px;
+              cursor: pointer;
+
+              span{
+                color: $cor-secundaria;
+                cursor: pointer;
+              }
             }
           }
         }
-      }
     }
   }
 }

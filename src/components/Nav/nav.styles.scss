@@ -10,6 +10,7 @@ a{
 .nav{
     width: 95%;
     margin: 0 auto;
+    font-family: $font-padrao;
 
     .nav--container{
         @include flex(center, space-between, row);
