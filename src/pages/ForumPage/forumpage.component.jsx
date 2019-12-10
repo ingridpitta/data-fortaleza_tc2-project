@@ -1,4 +1,10 @@
 import React, { Component } from "react";
+import User01 from "../../assets/img/user_01.svg";
+import User02 from "../../assets/img/user_02.svg";
+import User03 from "../../assets/img/user_03.svg";
+import CommentIcon from "../../assets/img/commentIcon.png";
+import LikedIcon from "../../assets/img/likedIcon.png";
+import LikeIcon from "../../assets/img/likeIcon.png";
 import "./forumpage.styles.scss";
 
 class ForumPage extends Component {
@@ -51,7 +57,7 @@ class ForumPage extends Component {
             </ul>
             <div className="forumPage--content-discussion">
               <div className="forumPage--discussion-topic">
-                <img src="" alt="user" />
+                <img src={User01} alt="user01" />
                 <div className="forumPage--topic-description">
                   <h3>Oficina de Fotografia no Dia das Crianças</h3>
                   <p>
@@ -70,11 +76,11 @@ class ForumPage extends Component {
                 </div>
                 <div className="forumPage--topic-status">
                   <div className="forumPage--status-answers">
-                    <img src="" alt="user" />
+                    <img src={CommentIcon} alt="comments" />
                     <h3>Respostas (100)</h3>
                   </div>
                   <div className="forumPage--status-likes">
-                    <img src="" alt="user" />
+                    <img src={LikedIcon} alt="likes" />
                     <h3>Curtidas (230)</h3>
                   </div>
                 </div>
@@ -83,31 +89,50 @@ class ForumPage extends Component {
 
             <div className="forumPage--content-discussion">
               <div className="forumPage--discussion-topic">
-                <img src="" alt="user" />
+                <img src={User02} alt="user02" />
                 <div className="forumPage--topic-description">
-                  <h3>Oficina de Fotografia no Dia das Crianças</h3>
+                  <h3>Reforma Praça do João XXIII</h3>
                   <p>
-                    Tópico para pensar uma oficina de fotografia no Dia das
-                    Crianças (12.10). Precisamos de voluntários para ajudar com
-                    a produção, conseguir material, divulgação, professores,
-                    alimentação, etc. Ainda precisamos definir o local do
-                    evento.
+                    Os moradores do João XXIII estão fazendo uma pesquisa de
+                    opinião pública e coletando assinaturas para solicitar a
+                    reforma da pracinha do bairro. Pedimos que ajudem e votem -
+                    na aba opine - para nos ajudar. Aqui também podemos discutir
+                    outras medidas a serem tomadas.
                   </p>
-                  <h4>Por Matheus - há 10min</h4>
+                  <h4>Por Amanda - há 1hora</h4>
                 </div>
               </div>
               <div className="forumPage--topic-container">
-                <div className="forumPage--topic-tag">
-                  <h2>EVENTOS</h2>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: 'center',
+                    textAlign: 'center'
+                  }}
+                >
+                  <div
+                    className="forumPage--topic-tag"
+                    style={{ marginTop: "5px", marginBottom: "5px" }}
+                  >
+                    <h2>LAZER</h2>
+                  </div>
+                  <div
+                    className="forumPage--topic-tag"
+                    style={{ marginTop: "5px", marginBottom: "5px" }}
+                  >
+                    <h2>INFRA</h2>
+                  </div>
                 </div>
                 <div className="forumPage--topic-status">
                   <div className="forumPage--status-answers">
-                    <img src="" alt="user" />
-                    <h3>Respostas (100)</h3>
+                    <img src={CommentIcon} alt="comments" />
+                    <h3>Respostas (180)</h3>
                   </div>
                   <div className="forumPage--status-likes">
-                    <img src="" alt="user" />
-                    <h3>Curtidas (230)</h3>
+                    <img src={LikeIcon} alt="likes" />
+                    <h3>Curtidas (420)</h3>
                   </div>
                 </div>
               </div>
@@ -115,31 +140,31 @@ class ForumPage extends Component {
 
             <div className="forumPage--content-discussion">
               <div className="forumPage--discussion-topic">
-                <img src="" alt="user" />
+                <img src={User03} alt="user03" />
                 <div className="forumPage--topic-description">
-                  <h3>Oficina de Fotografia no Dia das Crianças</h3>
+                  <h3>UPA do Jangurussu</h3>
                   <p>
-                    Tópico para pensar uma oficina de fotografia no Dia das
-                    Crianças (12.10). Precisamos de voluntários para ajudar com
-                    a produção, conseguir material, divulgação, professores,
-                    alimentação, etc. Ainda precisamos definir o local do
-                    evento.
+                    A UPA do Jangurussu segue com atendimento precário e com
+                    poucos médicos. Por vezes não conseguimos atendimento ou
+                    medicamentos e semana passada um garoto morreu na fila. É
+                    muito descaso, precisamos discutir como reagir a essa
+                    situação.
                   </p>
-                  <h4>Por Matheus - há 10min</h4>
+                  <h4>Por Bárbara - há 2horas</h4>
                 </div>
               </div>
               <div className="forumPage--topic-container">
                 <div className="forumPage--topic-tag">
-                  <h2>EVENTOS</h2>
+                  <h2>SAÚDE</h2>
                 </div>
                 <div className="forumPage--topic-status">
                   <div className="forumPage--status-answers">
-                    <img src="" alt="user" />
-                    <h3>Respostas (100)</h3>
+                    <img src={CommentIcon} alt="comments" />
+                    <h3>Respostas (50)</h3>
                   </div>
                   <div className="forumPage--status-likes">
-                    <img src="" alt="user" />
-                    <h3>Curtidas (230)</h3>
+                    <img src={LikedIcon} alt="likes" />
+                    <h3>Curtidas (30)</h3>
                   </div>
                 </div>
               </div>

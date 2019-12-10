@@ -143,6 +143,9 @@ ul {
           img {
             border-radius: 50%;
             margin-right: 20px;
+            width: 80px;
+            height: 78px;
+            cursor: pointer;
           }
 
           .forumPage--topic-description {
@@ -176,7 +179,7 @@ ul {
 
         .forumPage--topic-container {
           @include flex(center, space-between, row);
-          width: 61.5%;
+          width: 59.5%;
           margin-right: 30px;
 
           .forumPage--topic-tag {
@@ -186,7 +189,7 @@ ul {
             text-align: center;
 
             h2 {
-              font-size: $font-size-terciario;
+              font-size: $font-size-small;
               color: $cor-secundaria;
               font-weight: bold;
             }
@@ -199,14 +202,19 @@ ul {
               @include flex(center, center, row);
 
               img {
+                cursor: pointer;
               }
 
               h3 {
                 font-size: 0.885rem;
                 color: $gray-text;
-                width: 120px;
+                width: 110px;
                 font-weight: bold;
-                text-align: right;
+                text-align: left;
+                margin-left: 10px;
+                cursor: pointer;
+                margin-bottom: 2.5px;
+                margin-top: 2.5px;
               }
             }
 
@@ -214,20 +222,23 @@ ul {
               @include flex(center, center, row);
 
               img {
+                cursor: pointer;
               }
 
               h3 {
                 font-size: 0.885rem;
                 color: $gray-text;
                 font-weight: bold;
-                width: 120px;
-                text-align: right;
+                width: 110px;
+                text-align: left;
+                margin-left: 10px;
+                cursor: pointer;
+                margin-bottom: 2.5px;
+                margin-top: 2.5px;
               }
             }
           }
         }
-
-        
       }
 
       .forumPage--pagination {
