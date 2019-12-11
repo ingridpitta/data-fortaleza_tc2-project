@@ -88,14 +88,35 @@ ul {
     }
 
     .scorePage--main-content {
+      margin-left: 100px;
       width: 100%;
-      margin: 50px 0 0 120px;
-      display: grid;
-      align-items: top;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: 180px 90px 30px 90px;
-      grid-auto-flow: row;
-      grid-row-gap: 50px;
+      .scorePage--list {
+        @include flex(top, space-between, row);
+        border-bottom: 1px solid $light-gray;
+        box-shadow: 0 0.125rem 0.1rem rgba(0, 0, 0, 0.04);
+        padding-left: 0;
+        margin-left: auto;
+
+        li {
+          cursor: default;
+          padding: 5px 0 8px 30px;
+          color: $gray-text;
+          font-size: $font-size-padrao;
+          font-weight: bold;
+        }
+      }
+
+      .scorePage--content-card-container {
+        margin: 30px 15px;
+        margin-bottom: 0;
+        display: grid;
+        align-items: top;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 180px 90px 30px 90px;
+        grid-auto-flow: row;
+        grid-row-gap: 50px;
+        width: 100%;
+      }
 
       .scorePage--content-card {
         div:first-child {

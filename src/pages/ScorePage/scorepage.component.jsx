@@ -27,59 +27,61 @@ const ScorePage = () => (
         </ul>
       </div>
       <div className="scorePage--main-content">
-        <div className="scorePage--content-card">
-          <div>
-            <h1>ENEL</h1>
-            <h2>800 pontos</h2>
-          </div>
+        <ul className="scorePage--list">
+          <li>Ofertas</li>
+        </ul>
+        <div className="scorePage--content-card-container ">
+          <div className="scorePage--content-card">
+            <div>
+              <h1>ENEL</h1>
+              <h2>800 pontos</h2>
+            </div>
 
-          <p>5% de desconto na próxima fatura.</p>
-          <div className="scorePage--btnCard">
-            <Link to="/trocar/enel">
-              <button>TROCAR</button>
-            </Link>
+            <p>5% de desconto na próxima fatura.</p>
+            <div className="scorePage--btnCard">
+              <Link to="/trocar/enel">
+                <button>TROCAR</button>
+              </Link>
+            </div>
           </div>
-        </div>
+          <div className="scorePage--content-card">
+            <div>
+              <h1>CAGECE</h1>
+              <h2>600 pontos</h2>
+            </div>
 
-        <div className="scorePage--content-card">
-          <div>
-            <h1>CAGECE</h1>
-            <h2>600 pontos</h2>
+            <p>5% de desconto na próxima fatura.</p>
+            <div className="scorePage--btnCard">
+              <Link to="/trocar/cagece">
+                <button>TROCAR</button>
+              </Link>
+            </div>
           </div>
+          <div className="scorePage--content-card">
+            <div>
+              <h1>UCI</h1>
+              <h2>1500 pontos</h2>
+            </div>
 
-          <p>5% de desconto na próxima fatura.</p>
-          <div className="scorePage--btnCard">
-            <Link to="/trocar/cagece">
-              <button>TROCAR</button>
-            </Link>
+            <p>Meia entrada em qualquer cinema da rede UCI.</p>
+            <div className="scorePage--btnCard">
+              <Link to="/trocar/uci">
+                <button>TROCAR</button>
+              </Link>
+            </div>
           </div>
-        </div>
+          <div className="scorePage--content-card">
+            <div>
+              <h1>CAR +</h1>
+              <h2>2000 pontos</h2>
+            </div>
 
-        <div className="scorePage--content-card">
-          <div>
-            <h1>UCI</h1>
-            <h2>1500 pontos</h2>
-          </div>
-
-          <p>Meia entrada em qualquer cinema da rede UCI.</p>
-          <div className="scorePage--btnCard">
-            <Link to="/trocar/uci">
-              <button>TROCAR</button>
-            </Link>
-          </div>
-        </div>
-
-        <div className="scorePage--content-card">
-          <div>
-            <h1>CAR +</h1>
-            <h2>2000 pontos</h2>
-          </div>
-
-          <p>15% de desconto na lavagem do seu carro ou moto.</p>
-          <div className="scorePage--btnCard">
-            <Link to="/trocar/car">
-              <button>TROCAR</button>
-            </Link>
+            <p>15% de desconto na lavagem do seu carro ou moto.</p>
+            <div className="scorePage--btnCard">
+              <Link to="/trocar/car">
+                <button>TROCAR</button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
