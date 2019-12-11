@@ -5,7 +5,7 @@ import Ponte from "../../assets/img/ponteMetalica.jpeg";
 import MapaVlt from "../../assets/img/mapaVlt.png";
 import Biometria from "../../assets/img/biometria.png";
 import Cidade from "../../assets/img/cidade.png";
-import "./opinionPage.styles.scss";
+import "./opinionpage.styles.scss";
 
 class OpinionPage extends Component {
   constructor() {
@@ -16,10 +16,10 @@ class OpinionPage extends Component {
     };
   }
 
-//   showModal = e => {
-//     e.preventDefault();
-//     this.setState({ show: !this.state.show });
-//   };
+  //   showModal = e => {
+  //     e.preventDefault();
+  //     this.setState({ show: !this.state.show });
+  //   };
 
   render() {
     // const { show } = this.state;
