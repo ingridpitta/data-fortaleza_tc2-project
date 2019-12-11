@@ -4,10 +4,9 @@ import Nav from "../../components/Nav/nav.component";
 import NavigationSchema from "../../components/NavigationSchema/navigationschema.component";
 // import OpinionModal from "../../components/ComplaintModal/complaintModal.component";
 import Ponte from "../../assets/img/ponteMetalica.jpeg";
-import MapaVlt from "../../assets/img/mapaVlt.png";
-import Biometria from "../../assets/img/biometria.png";
-import Cidade from "../../assets/img/cidade.png";
-import "./opinionPage.styles.scss";
+import Orla from "../../assets/img/orla.png";
+import Aquario from "../../assets/img/aquario.png";
+import "./opinionpage.styles.scss";
 
 class OpinionPage extends Component {
   constructor() {
@@ -50,7 +49,7 @@ class OpinionPage extends Component {
 
             <Card
               id="2"
-              image={Ponte}
+              image={Orla}
               chamada=""
               title="Engorda da Orla da Beira Mar "
               text=""
@@ -62,7 +61,7 @@ class OpinionPage extends Component {
 
             <Card
               id="3"
-              image={Ponte}
+              image={Aquario}
               chamada=""
               title="Obras do Aquário de Fortaleza"
               text=""

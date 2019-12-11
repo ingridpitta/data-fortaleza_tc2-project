@@ -1,0 +1,55 @@
+@import "../../styles/extends";
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.resultsPage {
+  width: 90%;
+  margin: 0 4%;
+
+  .resultsPage--content {
+    @include flex(center, space-between, row);
+
+    .resultsPage--card {
+      background-color: $white;
+      width: 250px;
+      // height: 350px;
+      z-index: 2;
+      border-radius: 5px;
+      box-shadow: 0.125rem 0.125rem 0.125rem 0.125rem rgba(0, 0, 0, 0.16);
+      transition: all 0.3s ease 0s;
+      transform: scale(1);
+
+      &:hover {
+        box-shadow: 0.125rem 0.125rem 0.125rem 0.125rem rgba(67, 65, 65, 0.3);
+        transform: scale(1.1);
+      }
+
+      .imageCard {
+        height: 160px;
+
+        img {
+          width: 250px;
+          border-top-left-radius: 5px;
+          border-top-right-radius: 5px;
+        }
+      }
+
+      h1 {
+        font-family: $font-padrao;
+        font-size: 0.885rem;
+        font-weight: bold;
+        color: $gray-text;
+        padding: 0 20px;
+      }
+
+      p {
+        font-family: $font-padrao;
+        font-size: $font-size-terciario;
+        font-weight: normal;
+        color: $gray-text;
+        text-align: justify;
+        padding: 0 20px;
+      }
+    }
+  }
+}

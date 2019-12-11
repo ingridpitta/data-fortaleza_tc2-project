@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="187" height="159.107" viewBox="0 0 187 159.107">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="187" height="159.107" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Component_20_1" data-name="Component 20 – 1" clip-path="url(#clip-path)">
+    <g id="Rectangle_28" data-name="Rectangle 28" transform="translate(22.5 56)" fill="#ff0058" stroke="#ff0058" stroke-width="0.2">
+      <rect width="15" height="54" stroke="none"/>
+      <rect x="0.1" y="0.1" width="14.8" height="53.8" fill="none"/>
+    </g>
+    <g id="Rectangle_29" data-name="Rectangle 29" transform="translate(64.5 17)" fill="#699bf8" stroke="#699bf8" stroke-width="0.2">
+      <rect width="15" height="93" stroke="none"/>
+      <rect x="0.1" y="0.1" width="14.8" height="92.8" fill="none"/>
+    </g>
+    <g id="Rectangle_30" data-name="Rectangle 30" transform="translate(106.5 76)" fill="#7ed391" stroke="#7ed391" stroke-width="0.2">
+      <rect width="15" height="34" stroke="none"/>
+      <rect x="0.1" y="0.1" width="14.8" height="33.8" fill="none"/>
+    </g>
+    <g id="Rectangle_31" data-name="Rectangle 31" transform="translate(148.5 97)" fill="#707070" stroke="#707070" stroke-width="0.2">
+      <rect width="15" height="13" stroke="none"/>
+      <rect x="0.1" y="0.1" width="14.8" height="12.8" fill="none"/>
+    </g>
+    <line id="Line_14" data-name="Line 14" x2="187" transform="translate(0 110.5)" fill="none" stroke="#707070" stroke-width="0.2"/>
+    <text id="_20_" data-name="20%" transform="translate(20.5 46)" fill="#ff0058" font-size="10" font-family="Roboto-Medium, Roboto" font-weight="500"><tspan x="0" y="0">20%</tspan></text>
+    <text id="NÃO" transform="translate(25.757 128.692) rotate(-45)" fill="#ff0058" font-size="8" font-family="Roboto-Medium, Roboto" font-weight="500"><tspan x="0" y="0">NÃO</tspan></text>
+    <text id="SIM" transform="translate(65.757 129.692) rotate(-45)" fill="#ff0058" font-size="8" font-family="Roboto-Medium, Roboto" font-weight="500"><tspan x="0" y="0">SIM</tspan></text>
+    <text id="TALVEZ" transform="translate(98.757 137.692) rotate(-45)" fill="#ff0058" font-size="8" font-family="Roboto-Medium, Roboto" font-weight="500"><tspan x="0" y="0">TALVEZ</tspan></text>
+    <text id="NÃO_OPINARAM" data-name="NÃO OPINARAM" transform="translate(117.757 157.692) rotate(-45)" fill="#ff0058" font-size="8" font-family="Roboto-Medium, Roboto" font-weight="500"><tspan x="0" y="0">NÃO OPINARAM</tspan></text>
+    <text id="_60_" data-name="60%" transform="translate(62.5 10)" fill="#ff0058" font-size="10" font-family="Roboto-Medium, Roboto" font-weight="500"><tspan x="0" y="0">60%</tspan></text>
+    <text id="_12_" data-name="12%" transform="translate(104.5 71)" fill="#ff0058" font-size="10" font-family="Roboto-Medium, Roboto" font-weight="500"><tspan x="0" y="0">12%</tspan></text>
+    <text id="_8_" data-name=" 8%" transform="translate(146.5 92)" fill="#ff0058" font-size="10" font-family="Roboto-Medium, Roboto" font-weight="500"><tspan x="0" y="0" xml:space="preserve"> 8%</tspan></text>
+  </g>
+</svg>

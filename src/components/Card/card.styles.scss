@@ -54,7 +54,7 @@ span {
 
     a {
       button {
-        background-color: none;
+        background-color: transparent;
         font-family: $font-padrao;
         font-size: $font-size-terciario;
         font-weight: bold;
@@ -75,7 +75,7 @@ span {
 
 .card--noImage {
   padding-top: 20px;
-  background-color: $white;
+  background-color: transparent;
   width: 250px;
   height: 180px;
   z-index: 2;
