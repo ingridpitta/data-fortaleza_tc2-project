@@ -22,10 +22,10 @@ class LoginPage extends Component {
         <form className="login--form">
           <label for="cpf">CPF</label>
           <input name="cpf" type="text" id="cpf" placeholder="000.000.000-00" />
-          <p>
-            <span>Ooops!</span> Não encontramos seus dados em nossos registros.
-            Caso ainda não tenha cadastro <span>Clique Aqui.</span>
-          </p>
+          {/*<p>
+        <span>Ooops!</span> Não encontramos seus dados em nossos registros.
+        Caso ainda não tenha cadastro <span>Clique Aqui.</span>
+        </p>*/}
         </form>
 
         <div className="login--btn">
