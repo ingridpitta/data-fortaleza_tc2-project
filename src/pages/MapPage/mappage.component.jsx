@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Nav from "../../components/Nav/nav.component";
+import NavigationSchema from "../../components/NavigationSchema/navigationschema.component";
 import MapComponent from "../../components/Map/map.component";
 import BairrosFortaleza from "../../data/bairrosFortaleza.json";
 import RendaMedia from "../../data/rendaMedia.json";
@@ -16,13 +18,17 @@ class MapPage extends Component {
 
   render() {
     return (
-      <div className="mapPage">
-        <div className="mapPage-body--container">
-          <div className="mapPage-map--container">
-            <MapComponent {...this.state} />
+      <React.Fragment>
+        <Nav />
+        <NavigationSchema />
+        <div className="mapPage">
+          <div className="mapPage-body--container">
+            <div className="mapPage-map--container">
+              <MapComponent {...this.state} />
+            </div>
           </div>
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }

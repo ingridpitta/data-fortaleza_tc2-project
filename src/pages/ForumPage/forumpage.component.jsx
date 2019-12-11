@@ -6,6 +6,8 @@ import CommentIcon from "../../assets/img/commentIcon.png";
 import LikedIcon from "../../assets/img/likedIcon.png";
 import LikeIcon from "../../assets/img/likeIcon.png";
 import ForumModal from "../../components/ForumModal/forummodal.component";
+import Nav from "../../components/Nav/nav.component";
+import NavigationSchema from "../../components/NavigationSchema/navigationschema.component";
 import "./forumpage.styles.scss";
 
 class ForumPage extends Component {
@@ -26,6 +28,8 @@ class ForumPage extends Component {
     const { show } = this.state;
     return (
       <React.Fragment>
+      <Nav/>
+      <NavigationSchema/>
         {show ? (
           <div
             style={{
