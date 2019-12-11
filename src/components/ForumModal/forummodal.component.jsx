@@ -4,8 +4,8 @@ import {firestore, forumPath} from "../../firebase/firebase.utils";
 import * as firebase from "firebase";
 
 class ForumModal extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
             title: "",
@@ -40,13 +40,14 @@ class ForumModal extends React.Component {
             console.log("Document written with ID: ", docRef.id);
         }).catch(function (error) {
             console.error("Error adding document: ", error);
-        });
+        }).finally(this.props.close);
 
         this.setState({
             title: "",
             description: "",
             theme: ""
         });
+
     };
 
     render() {
@@ -85,7 +86,6 @@ class ForumModal extends React.Component {
                             <span>Informe a categoria do seu tópico</span>
                         </li>
                         <li>
-                            {/*<button type="submit" value="PUBLICAR" onClick={close}/>*/}
                             <button type="submit">PUBLICAR</button>
                         </li>
                     </ul>

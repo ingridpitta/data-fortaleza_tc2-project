@@ -9,18 +9,41 @@ import ForumModal from "../../components/ForumModal/forummodal.component";
 import Nav from "../../components/Nav/nav.component";
 import NavigationSchema from "../../components/NavigationSchema/navigationschema.component";
 import "./forumpage.styles.scss";
+import {firestore, forumPath} from "../../firebase/firebase.utils";
+import * as firebase from "firebase";
+import ForumUiModel from "../../components/ForumModal/forum.ui.model";
 
 class ForumPage extends Component {
     constructor() {
         super();
 
         this.state = {
-            show: false
+            show: false,
+            formList: []
         };
     }
 
+    componentDidMount() {
+        const callback = this.assembleForumUiModel;
+        firestore
+            .collection(forumPath)
+            .get()
+            .then(function (docsRef) {
+                console.log("loaded documents: ", docsRef);
+                callback(docsRef)
+            }).catch(function (error) {
+            console.error("Error adding document: ", error);
+        }).finally({});
+    }
+
+    assembleForumUiModel = (firebaseDocsRef) => {
+        this.setState({
+            formList: firebaseDocsRef.docs.map(item => (new ForumUiModel(item)))
+        });
+    };
+
     showModal = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         this.setState({show: !this.state.show});
     };
 
@@ -78,8 +101,7 @@ class ForumPage extends Component {
                         <div className="forumPage--main-content">
                             {show ? (
                                 <div style={{position: "absolute", top: "30%", left: "35%"}}>
-                                    {/*<ForumModal show={show} close={this.showModal}/>*/}
-                                    <ForumModal show={show}/>
+                                    <ForumModal show={show} close={this.showModal}/>
                                 </div>
                             ) : null}
                             <ul className="forumPage--list">
