@@ -12,17 +12,13 @@
     position: relative;
 
     .mapPage-map--container {
-      width: 50%;
+      width: 100%;
+      @include flex(top, space-between, row);
+      margin-left: 0;
 
       .leaflet-container {
         width: 100%;
       }
-    }
-
-    .mapPage-data--container {
-      width: 50%;
-      max-width: 500px;
-      text-align: left;
     }
   }
 }

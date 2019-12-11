@@ -1,4 +1,6 @@
 import React from 'react';
+import Nav from "../../components/Nav/nav.component";
+import NavigationSchema from "../../components/NavigationSchema/navigationschema.component";
 import Card from '../../components/Card/card.component';
 import Ponte from '../../assets/img/ponteMetalica.jpeg';
 import MapaVlt from '../../assets/img/mapaVlt.png';
@@ -7,6 +9,9 @@ import Cidade from '../../assets/img/cidade.png';
 import './homepage.styles.scss';
 
 const HomePage = () => (
+    <React.Fragment>
+    <Nav/>
+    <NavigationSchema/>
     <div className="homepage">
         <div className="homepage-body--container">
             <Card
@@ -106,6 +111,7 @@ const HomePage = () => (
             />
         </div>
     </div>
+    </React.Fragment>
 )
 
 export default HomePage;

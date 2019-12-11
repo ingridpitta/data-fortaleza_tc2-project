@@ -6,6 +6,8 @@ import CommentIcon from "../../assets/img/commentIcon.png";
 import LikedIcon from "../../assets/img/likedIcon.png";
 import LikeIcon from "../../assets/img/likeIcon.png";
 import ForumModal from "../../components/ForumModal/forummodal.component";
+import Nav from "../../components/Nav/nav.component";
+import NavigationSchema from "../../components/NavigationSchema/navigationschema.component";
 import "./forumpage.styles.scss";
 
 class ForumPage extends Component {
@@ -20,14 +22,14 @@ class ForumPage extends Component {
     showModal = (e) => {
         e.preventDefault();
         this.setState({show: !this.state.show});
-        alert(e.stringify())
-
     };
 
     render() {
         const {show} = this.state;
         return (
             <React.Fragment>
+                <Nav/>
+                <NavigationSchema/>
                 {show ? (
                     <div
                         style={{
@@ -76,7 +78,8 @@ class ForumPage extends Component {
                         <div className="forumPage--main-content">
                             {show ? (
                                 <div style={{position: "absolute", top: "30%", left: "35%"}}>
-                                    <ForumModal show={show} close={this.showModal}/>
+                                    {/*<ForumModal show={show} close={this.showModal}/>*/}
+                                    <ForumModal show={show}/>
                                 </div>
                             ) : null}
                             <ul className="forumPage--list">

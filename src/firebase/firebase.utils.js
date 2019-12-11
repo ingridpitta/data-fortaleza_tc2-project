@@ -18,9 +18,9 @@ export const getDataFromFirebase = async () => {
     const geoData =
         await firebase.database().ref('/').on('value', (snapshot) => {
             return snapshot.val()
-        })
+        });
     return geoData;
-}
+};
 
 
 firebase.initializeApp(config);
@@ -28,5 +28,5 @@ firebase.initializeApp(config);
 
 export const firestore = firebase.firestore();
 // export const analytics = firebase.analytics();
-
+export const forumPath = "data-fortaleza-tc2-project/data/forum";
 export default firebase;

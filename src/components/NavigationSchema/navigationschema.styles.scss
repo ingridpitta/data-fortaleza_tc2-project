@@ -1,55 +1,56 @@
-@import '../../styles/extends'; 
-@import '../../styles/variables';
-@import '../../styles/mixins';
+@import "../../styles/extends";
+@import "../../styles/variables";
+@import "../../styles/mixins";
 
-a{
-    text-decoration: none;
-    color:$gray-text
+a {
+  text-decoration: none;
+  color: $gray-text;
 }
 
-.navigationSchema{
-    ul{
-        font-family: $font-padrao;
-        color: $gray-text;
-        list-style:none;
-        font-weight: bold;
+.navigationSchema {
+  ul {
+    font-family: $font-padrao;
+    color: $gray-text;
+    list-style: none;
+    font-weight: bold;
+    margin-bottom: 50px;
+  }
+
+  ul:first-child {
+    @include flex(center, left, row);
+
+    a {
+      border-right: 0.1px solid $light-gray;
+      li {
+        font-size: $font-size-terciario;
+        padding: 0 10px;
+        cursor: pointer;
+      }
+
+      #selected {
+        color: $cor-secundaria;
+      }
     }
 
-    ul:first-child{
-        @include flex (center, left, row);
-
-        a{
-            border-right: 0.1px solid $light-gray;
-            li{
-                font-size: $font-size-terciario;
-                padding: 0 10px;
-                cursor:pointer;
-            }
-
-            #selected{
-                color: $cor-secundaria;
-            }
-        }
-
-        a:last-child{
-            border-right: none;
-        }
+    a:last-child {
+      border-right: none;
     }
+  }
 
-     ul:last-child{
-         @include flex (center, left, row);
-         font-weight: normal;
+  //  ul:last-child{
+  //      @include flex (center, left, row);
+  //      font-weight: normal;
 
-         a{
-              li:first-child{
-                color:$gray-text
-            }
+  //      a{
+  //           li:first-child{
+  //             color:$gray-text
+  //         }
 
-            li{
-                font-size: $font-size-small;
-                padding: 0 10px;
-                cursor:pointer;
-            }
-         }
-    }
+  //         li{
+  //             font-size: $font-size-small;
+  //             padding: 0 10px;
+  //             cursor:pointer;
+  //         }
+  //      }
+  // }
 }
