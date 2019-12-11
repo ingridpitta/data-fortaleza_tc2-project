@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import Charts from "../../components/Charts/charts.component";
-import BairrosFortaleza from "../../data/bairrosFortaleza.json";
-import RendaMedia from "../../data/rendaMedia.json";
 import L from "leaflet";
 import { Map, Marker, Popup, TileLayer, GeoJSON } from "react-leaflet";
 import "./map.styles.scss";
@@ -13,7 +11,8 @@ class MapComponent extends Component {
     this.state = {
       lat: -3.770398,
       lng: -38.524604,
-      zoom: 11
+      zoom: 11,
+      layerInfo: {}
     };
   }
 
@@ -48,7 +47,15 @@ class MapComponent extends Component {
   };
 
   infos = e => {
-    console.log(e.target.feature.properties.UI_NOME);
+    this.setState({
+      layerInfo: {
+        name: e.target.feature.properties.UI_NOME,
+        area: e.target.feature.properties.AREA_KM2,
+        ser:  e.target.feature.properties.SER,
+        distrito: e.target.feature.properties.DISTRITO,
+        ibgeName: e.target.feature.properties.NM_BAIRRO
+      }
+    });
   };
 
   onEachFeature = (feature, layer) => {
@@ -58,13 +65,17 @@ class MapComponent extends Component {
       click: this.infos
     });
   };
-
+      
   render() {
-    const { bairrosFortaleza, rendaMedia } = this.props;
+    console.log("dadosState", this.state.layerInfo)
+    const { bairrosFortaleza, rendaMedia, ibge } = this.props;
     const position = [this.state.lat, this.state.lng];
     return (
       <React.Fragment>
-        <div className="mapid" style={{display: "flex", width: "50%", marginLeft: "0"}}>
+        <div
+          className="mapid"
+          style={{ display: "flex", width: "50%", marginLeft: "0" }}
+        >
           <Map
             center={position}
             zoom={this.state.zoom}
@@ -74,6 +85,21 @@ class MapComponent extends Component {
             <TileLayer
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            />
+            <GeoJSON
+              data={ibge.features.properties}
+              id="ibge"
+              style={() => ({
+                ref: "geojson",
+                stroke: true,
+                color: "transparent",
+                weight: 1,
+                fillColor: "#FF0058",
+                fillOpacity: 0.3,
+                dashArray: "3",
+                className: "ibge"
+              })}
+              onEachFeature={this.onEachFeature.bind(this)}
             />
             <GeoJSON
               data={bairrosFortaleza.features}
@@ -106,7 +132,7 @@ class MapComponent extends Component {
           </Map>
         </div>
         <div className="map--charts">
-          <Charts {...this.props} />
+          <Charts {...this.props} mapInfo={this.state.layerInfo} />
         </div>
       </React.Fragment>
     );
