@@ -68,7 +68,7 @@ class MapComponent extends Component {
       
   render() {
     console.log("dadosState", this.state.layerInfo)
-    const { bairrosFortaleza, rendaMedia, ibge } = this.props;
+    const { bairrosFortaleza, rendaMedia, ibge} = this.props;
     const position = [this.state.lat, this.state.lng];
     return (
       <React.Fragment>
@@ -87,7 +87,7 @@ class MapComponent extends Component {
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             />
             <GeoJSON
-              data={ibge.features.properties}
+              data={ibge.features}
               id="ibge"
               style={() => ({
                 ref: "geojson",
@@ -101,6 +101,7 @@ class MapComponent extends Component {
               })}
               onEachFeature={this.onEachFeature.bind(this)}
             />
+
             <GeoJSON
               data={bairrosFortaleza.features}
               id="bairros"
@@ -116,7 +117,7 @@ class MapComponent extends Component {
               })}
               onEachFeature={this.onEachFeature.bind(this)}
             />
-            <GeoJSON
+            {/*<GeoJSON
               data={rendaMedia.features}
               id="renda"
               style={() => ({
@@ -128,7 +129,8 @@ class MapComponent extends Component {
                 fillOpacity: 0.2,
                 className: "renda"
               })}
-            />
+              onEachFeature={this.onEachFeature.bind(this)}
+            />*/}
           </Map>
         </div>
         <div className="map--charts">

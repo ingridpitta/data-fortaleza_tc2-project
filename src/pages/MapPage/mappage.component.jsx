@@ -4,7 +4,7 @@ import NavigationSchema from "../../components/NavigationSchema/navigationschema
 import MapComponent from "../../components/Map/map.component";
 import BairrosFortaleza from "../../data/bairrosFortaleza.json";
 import RendaMedia from "../../data/rendaMedia.json";
-import Ibge from "../../data/censoIBGE2010.json";
+import Ibge from "../../data/censoFortaleza.json";
 import "./mappage.styles.scss";
 
 class MapPage extends Component {
