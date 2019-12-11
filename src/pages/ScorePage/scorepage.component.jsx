@@ -5,11 +5,14 @@ import "./scorepage.styles.scss";
 const ScorePage = () => (
   <div className="scorePage">
     <div className="scorePage--intro">
-      <h1>Troque seus Pontos</h1>
-      <h3>
-        Escolha por quais produtos, descontos ou serviços deseja trocar seus
-        pontos.
-      </h3>
+      <div className="scorePage--title">
+        <h1>Troque seus Pontos</h1>
+        <h3>
+          Escolha por quais produtos, descontos ou serviços deseja trocar seus
+          pontos.
+        </h3>
+      </div>
+      <span>SALDO: 1.020 pontos</span>
     </div>
     <div className="scorePage--main">
       <div className="scorePage--main-indice">
