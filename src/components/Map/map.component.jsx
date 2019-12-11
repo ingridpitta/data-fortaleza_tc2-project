@@ -16,18 +16,16 @@ class MapComponent extends Component {
 
   highlightFeature = e => {
     let layer = e.target;
-    layer.setStyle({
-      style: {
-        weight: 10,
-        stroke: true,
-        fill: true,
-        fillColor: "#000",
-        color: "#000",
-        fillOpacity: 1,
-        opacity: 1,
-        dashArray: ""
-      }
-    });
+    // let geojson = L.geoJson(this.props.bairrosFortaleza);
+    const style = {
+      stroke: true,
+      color: "white",
+      weight: 1.5,
+      fillColor: "#FF0058",
+      fillOpacity: 0.8,
+      dashArray: ""
+    };
+    layer.setStyle(style);
 
     if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
       layer.bringToFront();
@@ -35,8 +33,19 @@ class MapComponent extends Component {
   };
 
   resetHighlight = e => {
-    let geojson = L.geoJson(this.props.bairrosFortaleza);
-    geojson.resetStyle(e.target);
+    // let geojson = L.geoJson(this.props.bairrosFortaleza);
+    // geojson.resetStyle(e.target);
+
+    let layer = e.target;
+    const style = {
+      stroke: true,
+      color: "white",
+      weight: 1,
+      fillColor: "#FF0058",
+      fillOpacity: 0.3,
+      dashArray: "3"
+    };
+    layer.setStyle(style);
   };
 
   zoomToFeature = e => {
