@@ -8,6 +8,7 @@ import LikeIcon from "../../assets/img/likeIcon.png";
 import ForumModal from "../../components/ForumModal/forummodal.component";
 import Nav from "../../components/Nav/nav.component";
 import NavigationSchema from "../../components/NavigationSchema/navigationschema.component";
+import ForumPost from "../../components/ForumPost/forumpost.component";
 import "./forumpage.styles.scss";
 
 class ForumPage extends Component {
@@ -25,7 +26,7 @@ class ForumPage extends Component {
   };
 
   render() {
-    const { show } = this.state;
+    const { show, liked} = this.state;
     return (
       <React.Fragment>
       <Nav/>
@@ -88,120 +89,53 @@ class ForumPage extends Component {
                   <li>Respostas</li>
                 </div>
               </ul>
-              <div className="forumPage--content-discussion">
-                <div className="forumPage--discussion-topic">
-                  <img src={User01} alt="user01" />
-                  <div className="forumPage--topic-description">
-                    <h3>Oficina de Fotografia no Dia das Crianças</h3>
-                    <p>
-                      Tópico para pensar uma oficina de fotografia no Dia das
+              <ForumPost
+              img={User01}
+              alt="user01"
+              title="Oficina de Fotografia no Dia das Crianças"
+              text="Tópico para pensar uma oficina de fotografia no Dia das
                       Crianças (12.10). Precisamos de voluntários para ajudar
                       com a produção, conseguir material, divulgação,
                       professores, alimentação, etc. Ainda precisamos definir o
-                      local do evento.
-                    </p>
-                    <h4>Por Matheus - há 10min</h4>
-                  </div>
-                </div>
-                <div className="forumPage--topic-container">
-                  <div className="forumPage--topic-tag">
-                    <h2>EVENTOS</h2>
-                  </div>
-                  <div className="forumPage--topic-status">
-                    <div className="forumPage--status-answers">
-                      <img src={CommentIcon} alt="comments" />
-                      <h3>Respostas (100)</h3>
-                    </div>
-                    <div className="forumPage--status-likes">
-                      <img src={LikedIcon} alt="likes" />
-                      <h3>Curtidas (230)</h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                      local do evento."
+              author="Por Matheus - há 10min"
+              tag="EVENTOS"
+              answers="180"
+              likes="100"
+              liked={true}
+              />
 
-              <div className="forumPage--content-discussion">
-                <div className="forumPage--discussion-topic">
-                  <img src={User02} alt="user02" />
-                  <div className="forumPage--topic-description">
-                    <h3>Reforma Praça do João XXIII</h3>
-                    <p>
-                      Os moradores do João XXIII estão fazendo uma pesquisa de
+              <ForumPost
+              img={User02}
+              alt="user02"
+              title="Reforma Praça do João XXIII"
+              text="Os moradores do João XXIII estão fazendo uma pesquisa de
                       opinião pública e coletando assinaturas para solicitar a
                       reforma da pracinha do bairro. Pedimos que ajudem e votem
                       - na aba opine - para nos ajudar. Aqui também podemos
-                      discutir outras medidas a serem tomadas.
-                    </p>
-                    <h4>Por Amanda - há 1hora</h4>
-                  </div>
-                </div>
-                <div className="forumPage--topic-container">
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      textAlign: "center"
-                    }}
-                  >
-                    <div
-                      className="forumPage--topic-tag"
-                      style={{ marginTop: "5px", marginBottom: "5px" }}
-                    >
-                      <h2>LAZER</h2>
-                    </div>
-                    <div
-                      className="forumPage--topic-tag"
-                      style={{ marginTop: "5px", marginBottom: "5px" }}
-                    >
-                      <h2>INFRA</h2>
-                    </div>
-                  </div>
-                  <div className="forumPage--topic-status">
-                    <div className="forumPage--status-answers">
-                      <img src={CommentIcon} alt="comments" />
-                      <h3>Respostas (180)</h3>
-                    </div>
-                    <div className="forumPage--status-likes">
-                      <img src={LikeIcon} alt="likes" />
-                      <h3>Curtidas (420)</h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                      discutir outras medidas a serem tomadas."
+              author="Por Amanda - há 1hora"
+              tag="LAZER"
+              answers="200"
+              likes="240"
+              liked={false}
+              />
 
-              <div className="forumPage--content-discussion">
-                <div className="forumPage--discussion-topic">
-                  <img src={User03} alt="user03" />
-                  <div className="forumPage--topic-description">
-                    <h3>UPA do Jangurussu</h3>
-                    <p>
-                      A UPA do Jangurussu segue com atendimento precário e com
+              <ForumPost
+              img={User03}
+              alt="user03"
+              title="UPA do Jangurussu"
+              text="A UPA do Jangurussu segue com atendimento precário e com
                       poucos médicos. Por vezes não conseguimos atendimento ou
                       medicamentos e semana passada um garoto morreu na fila. É
                       muito descaso, precisamos discutir como reagir a essa
-                      situação.
-                    </p>
-                    <h4>Por Bárbara - há 2horas</h4>
-                  </div>
-                </div>
-                <div className="forumPage--topic-container">
-                  <div className="forumPage--topic-tag">
-                    <h2>SAÚDE</h2>
-                  </div>
-                  <div className="forumPage--topic-status">
-                    <div className="forumPage--status-answers">
-                      <img src={CommentIcon} alt="comments" />
-                      <h3>Respostas (50)</h3>
-                    </div>
-                    <div className="forumPage--status-likes">
-                      <img src={LikedIcon} alt="likes" />
-                      <h3>Curtidas (30)</h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                      situação."
+              author="Por Bárbara - há 2horas"
+              tag="SAÚDE"
+              answers="150"
+              likes="120"
+              liked={true}
+              />
               <div className="forumPage--pagination">
                 <ul className="paginationList">
                   <li>{"<"}</li>
