@@ -15,8 +15,8 @@ const config = {
 };
 
 export const getDataFromFirebase = async () => {
-    const geoData =  
-         await firebase.database().ref('/').on('value', (snapshot) =>{
+    const geoData =
+        await firebase.database().ref('/').on('value', (snapshot) => {
             return snapshot.val()
         })
     return geoData;

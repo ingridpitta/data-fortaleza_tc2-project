@@ -5,7 +5,7 @@ import Ponte from "../../assets/img/ponteMetalica.jpeg";
 import MapaVlt from "../../assets/img/mapaVlt.png";
 import Biometria from "../../assets/img/biometria.png";
 import Cidade from "../../assets/img/cidade.png";
-import "./opinionpage.styles.scss";
+import "./opinionPage.styles.scss";
 
 class OpinionPage extends Component {
   constructor() {

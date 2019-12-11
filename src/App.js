@@ -3,13 +3,14 @@ import { Switch, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage/homepage.component";
 import MapPage from "./pages/MapPage/mappage.component";
 import ForumPage from "./pages/ForumPage/forumpage.component";
-import OpinionPage from "./pages/OpinionPage/opinionpage.component";
+// import OpinionPage from "./pages/OpinionPage/opinionpage.component";
 import ScorePage from "./pages/ScorePage/scorepage.component";
 import ComplaintPage from "./pages/ComplaintPage/complaintpage.component";
 import Nav from "./components/Nav/nav.component";
 import Footer from "./components/Footer/footer.component";
 import NavigationSchema from "./components/NavigationSchema/navigationschema.component";
 import "./App.css";
+import OpinionPage from "./pages/OpinionPage/opinionPage.component";
 
 function App() {
   return (
