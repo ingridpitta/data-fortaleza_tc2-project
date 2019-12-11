@@ -105,7 +105,6 @@ const HomePage = () => (
                 classCard = "card--withImage"
             />
         </div>
-        <div className="homepage-footer--container"></div>
     </div>
 )
 

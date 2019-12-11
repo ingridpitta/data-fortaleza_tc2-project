@@ -1,0 +1,28 @@
+@import "../../styles/extends";
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.opinionPage {
+  max-width: 100vw;
+  width: 100%;
+  margin: 0 auto;
+
+  .opinionPage-body--container {
+    width: 90%;
+    margin: 50px 80px;
+    display: grid;
+    align-items: top;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-flow: row;
+    grid-row-gap: 50px;
+    margin-bottom: 150px;
+
+    h1 {
+      height: 38px;
+    }
+
+    .card--noImage {
+      height: 220px;
+    }
+  }
+}
