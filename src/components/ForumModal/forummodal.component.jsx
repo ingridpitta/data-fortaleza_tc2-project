@@ -1,6 +1,7 @@
 import React from "react";
 import "./forummodal.styles.scss";
 import {firestore, forumPath} from "../../firebase/firebase.utils";
+import * as firebase from "firebase";
 
 class ForumModal extends React.Component {
     constructor() {
@@ -9,7 +10,11 @@ class ForumModal extends React.Component {
         this.state = {
             title: "",
             description: "",
-            theme: ""
+            theme: "",
+            discussion: [],
+            likes: 0,
+            user_name: "Fulano",
+            user_profile: "https://www.hypeness.com.br/wp-content/uploads/2019/04/Machado_Negro_3.jpg"
         };
     }
 
@@ -22,10 +27,19 @@ class ForumModal extends React.Component {
     addForum = e => {
         e.preventDefault();
 
-        const forumRef = firestore.collection(forumPath).add({
+        firestore.collection(forumPath).add({
             title: this.state.title,
             description: this.state.description,
-            themes: this.state.theme.split(", ")
+            themes: this.state.theme.split(", "),
+            discussion: this.state.discussion,
+            likes: this.state.likes,
+            user_name: this.state.user_name,
+            user_profile: this.state.user_profile,
+            createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        }).then(function (docRef) {
+            console.log("Document written with ID: ", docRef.id);
+        }).catch(function (error) {
+            console.error("Error adding document: ", error);
         });
 
         this.setState({
