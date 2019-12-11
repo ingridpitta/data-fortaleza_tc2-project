@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Card from "../../components/Card/card.component";
-import OpinionModal from "../../components/OpinionModal/opinionModal.component";
+// import OpinionModal from "../../components/ComplaintModal/complaintModal.component";
 import Ponte from "../../assets/img/ponteMetalica.jpeg";
 import MapaVlt from "../../assets/img/mapaVlt.png";
 import Biometria from "../../assets/img/biometria.png";
