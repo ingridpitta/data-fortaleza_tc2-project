@@ -24,6 +24,12 @@ class MapPage extends Component {
         <Nav />
         <NavigationSchema />
         <div className="mapPage">
+          <div className="mapPage--title">
+            <h1>Saiba mais sobre seu bairro</h1>
+            <h3>
+              Clique nos bairros no mapa para visualizar os dados.
+            </h3>
+          </div>
           <div className="mapPage-body--container">
             <div className="mapPage-map--container">
               <MapComponent {...this.state} />

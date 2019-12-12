@@ -3,7 +3,14 @@
 @import "../../styles/mixins";
 
 .charts {
+  display: grid;
+  align-items: top;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 180px;
+  grid-auto-flow: row;
+  grid-row-gap: 50px;
   text-align: left;
   margin-left: 0;
+  margin-right: 4%;
   width: 80%;
 }
