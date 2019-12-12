@@ -13,9 +13,9 @@ class ForumModal extends React.Component {
             theme: "",
             discussion: ["comentario1", "comentario2"],
             likes: 0,
-            user_name: "Fulano",
-            user_profile: "https://www.hypeness.com.br/wp-content/uploads/2019/04/Machado_Negro_3.jpg",
             liked: false
+            user_name: "Pedro Alencar",
+            user_profile: "../../assets/img/profilePicture.svg"
         };
     }
 
