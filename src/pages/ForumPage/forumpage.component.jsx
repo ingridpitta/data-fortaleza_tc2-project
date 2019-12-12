@@ -1,61 +1,60 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import User01 from "../../assets/img/user_01.svg";
 import User02 from "../../assets/img/user_02.svg";
 import User03 from "../../assets/img/user_03.svg";
-import CommentIcon from "../../assets/img/commentIcon.png";
-import LikedIcon from "../../assets/img/likedIcon.png";
-import LikeIcon from "../../assets/img/likeIcon.png";
 import ForumModal from "../../components/ForumModal/forummodal.component";
 import Nav from "../../components/Nav/nav.component";
 import NavigationSchema from "../../components/NavigationSchema/navigationschema.component";
 import ForumPost from "../../components/ForumPost/forumpost.component";
 import "./forumpage.styles.scss";
-import {firestore, forumPath} from "../../firebase/firebase.utils";
+import { firestore, forumPath } from "../../firebase/firebase.utils";
 import ForumUiModel from "../../components/ForumModal/forum.ui.model";
 
 class ForumPage extends Component {
-    constructor() {
-        super();
+  constructor() {
+    super();
 
-        this.state = {
-            show: false,
-            formList: []
-        };
-    }
-
-    componentDidMount() {
-        const callback = this.assembleForumUiModel;
-        console.clear();
-        firestore
-            .collection(forumPath)
-            .get()
-            .then(function (docsRef) {
-                console.log("loaded documents: ", docsRef.docs);
-                let uiModels = docsRef.docs.map((item) => new ForumUiModel(item));
-                callback(uiModels);
-            }).catch(function (error) {
-            console.error("Error adding document: ", error);
-        }).finally({});
-    }
-
-    assembleForumUiModel = (firebaseDocsRef) => {
-        console.log("uiModels: ", firebaseDocsRef);
-        this.setState({
-            formList: firebaseDocsRef
-        })
+    this.state = {
+      show: false,
+      formList: []
     };
+  }
 
-    showModal = (e) => {
-        // e.preventDefault();
-        this.setState({show: !this.state.show});
-    };
+  componentDidMount() {
+    const callback = this.assembleForumUiModel;
+    console.clear();
+    firestore
+      .collection(forumPath)
+      .get()
+      .then(function(docsRef) {
+        console.log("loaded documents: ", docsRef.docs);
+        let uiModels = docsRef.docs.map(item => new ForumUiModel(item));
+        callback(uiModels);
+      })
+      .catch(function(error) {
+        console.error("Error adding document: ", error);
+      })
+      .finally({});
+  }
+
+  assembleForumUiModel = firebaseDocsRef => {
+    console.log("uiModels: ", firebaseDocsRef);
+    this.setState({
+      formList: firebaseDocsRef
+    });
+  };
+
+  showModal = e => {
+    // e.preventDefault();
+    this.setState({ show: !this.state.show });
+  };
 
   render() {
-    const { show, liked} = this.state;
+    const { show, liked } = this.state;
     return (
       <React.Fragment>
-      <Nav/>
-      <NavigationSchema/>
+        <Nav />
+        <NavigationSchema />
         {show ? (
           <div
             style={{
@@ -115,54 +114,54 @@ class ForumPage extends Component {
                 </div>
               </ul>
               <ForumPost
-              id=""
-              img={User01}
-              alt="user01"
-              title="Oficina de Fotografia no Dia das Crianças"
-              text="Tópico para pensar uma oficina de fotografia no Dia das
+                id=""
+                img={User01}
+                alt="user01"
+                title="Oficina de Fotografia no Dia das Crianças"
+                text="Tópico para pensar uma oficina de fotografia no Dia das
                       Crianças (12.10). Precisamos de voluntários para ajudar
                       com a produção, conseguir material, divulgação,
                       professores, alimentação, etc. Ainda precisamos definir o
                       local do evento."
-              author="Por Matheus - há 10min"
-              tag="EVENTOS"
-              answers="180"
-              likes="100"
-              liked={true}
+                author="Por Matheus - há 10min"
+                tag="EVENTOS"
+                answers="180"
+                likes="100"
+                liked={true}
               />
 
               <ForumPost
-              id=""
-              img={User02}
-              alt="user02"
-              title="Reforma Praça do João XXIII"
-              text="Os moradores do João XXIII estão fazendo uma pesquisa de
+                id=""
+                img={User02}
+                alt="user02"
+                title="Reforma Praça do João XXIII"
+                text="Os moradores do João XXIII estão fazendo uma pesquisa de
                       opinião pública e coletando assinaturas para solicitar a
                       reforma da pracinha do bairro. Pedimos que ajudem e votem
                       - na aba opine - para nos ajudar. Aqui também podemos
                       discutir outras medidas a serem tomadas."
-              author="Por Amanda - há 1hora"
-              tag="LAZER"
-              answers="200"
-              likes="240"
-              liked={false}
+                author="Por Amanda - há 1hora"
+                tag="LAZER"
+                answers="200"
+                likes="240"
+                liked={false}
               />
 
               <ForumPost
-              id=""
-              img={User03}
-              alt="user03"
-              title="UPA do Jangurussu"
-              text="A UPA do Jangurussu segue com atendimento precário e com
+                id=""
+                img={User03}
+                alt="user03"
+                title="UPA do Jangurussu"
+                text="A UPA do Jangurussu segue com atendimento precário e com
                       poucos médicos. Por vezes não conseguimos atendimento ou
                       medicamentos e semana passada um garoto morreu na fila. É
                       muito descaso, precisamos discutir como reagir a essa
                       situação."
-              author="Por Bárbara - há 2horas"
-              tag="SAÚDE"
-              answers="150"
-              likes="120"
-              liked={true}
+                author="Por Bárbara - há 2horas"
+                tag="SAÚDE"
+                answers="150"
+                likes="120"
+                liked={true}
               />
               <div className="forumPage--pagination">
                 <ul className="paginationList">
