@@ -10,7 +10,7 @@ class ForumModal extends React.Component {
         this.state = {
             title: "",
             description: "",
-            tag: "",
+            theme: "",
             discussion: ["comentario1", "comentario2"],
             likes: 0,
             user_name: "Fulano",
@@ -30,7 +30,7 @@ class ForumModal extends React.Component {
         firestore.collection(forumPath).add({
             title: this.state.title,
             description: this.state.description,
-            tag: this.state.tag,
+            tag: this.state.theme,
             discussion: this.state.discussion,
             likes: this.state.likes,
             user_name: this.state.user_name,
@@ -45,8 +45,7 @@ class ForumModal extends React.Component {
         this.setState({
             title: "",
             description: "",
-            theme: "",
-            tag: ""
+            theme: ""
         });
     };
 
@@ -81,7 +80,7 @@ class ForumModal extends React.Component {
                                    name="theme"
                                    maxLength="100"
                                    onChange={this.updateTitleInput}
-                                   value={this.state.tag}
+                                   value={this.state.theme}
                             />
                             <span>Informe a categoria do seu tópico</span>
                         </li>
