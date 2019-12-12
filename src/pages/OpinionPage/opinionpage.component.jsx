@@ -26,9 +26,13 @@ class OpinionPage extends Component {
     // const { show } = this.state;
     return (
       <React.Fragment>
-      <Nav/>
-      <NavigationSchema/>
+        <Nav />
+        <NavigationSchema />
         <div className="opinionPage">
+          <div className="opinionPage--title">
+            <h1>Opine e Participe</h1>
+            <h3>Clique nos cards para mais informações.</h3>
+          </div>
           <div className="opinionPage-body--container">
             {/*{show ? (
             <div style={{ position: "absolute", top: "30%", left: "35%" }}>

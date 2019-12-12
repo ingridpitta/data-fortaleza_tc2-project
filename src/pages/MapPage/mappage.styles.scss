@@ -5,6 +5,26 @@
 .mapPage {
   max-width: 100vw;
   width: 100%;
+
+  .mapPage--title {
+      text-align: left;
+      margin-left: 4%;
+
+      h1 {
+        font-size: $font-size-medium;
+        color: $cor-secundaria;
+        font-weight: bold;
+        margin-bottom: 0;
+      }
+
+      h3 {
+        font-size: 0.885rem;
+        color: $gray-text;
+        font-weight: lighter;
+        margin-top: 10px;
+      }
+  }
+
   .mapPage-body--container {
     @include flex(left, space-between, row);
     margin-left: 50px;

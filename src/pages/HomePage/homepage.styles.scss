@@ -7,6 +7,25 @@
   width: 100%;
   margin: 0 auto;
 
+  .homePage--title {
+      text-align: left;
+      margin-left: 4%;
+
+      h1 {
+        font-size: $font-size-medium;
+        color: $cor-secundaria;
+        font-weight: bold;
+        margin-bottom: 0;
+      }
+
+      h3 {
+        font-size: 0.885rem;
+        color: $gray-text;
+        font-weight: lighter;
+        margin-top: 10px;
+      }
+  }
+
   .homepage-body--container {
     width: 90%;
     margin: 50px 80px;
