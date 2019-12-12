@@ -90,6 +90,7 @@ class ForumPage extends Component {
                 </div>
               </ul>
               <ForumPost
+              id=""
               img={User01}
               alt="user01"
               title="Oficina de Fotografia no Dia das Crianças"
@@ -106,6 +107,7 @@ class ForumPage extends Component {
               />
 
               <ForumPost
+              id=""
               img={User02}
               alt="user02"
               title="Reforma Praça do João XXIII"
@@ -122,6 +124,7 @@ class ForumPage extends Component {
               />
 
               <ForumPost
+              id=""
               img={User03}
               alt="user03"
               title="UPA do Jangurussu"
