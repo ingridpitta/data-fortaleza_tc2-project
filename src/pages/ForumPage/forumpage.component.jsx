@@ -68,7 +68,7 @@ class ForumPage extends Component {
               top: "0",
               bottom: "0"
             }}
-          ></div>
+          />
         ) : null}
         <div className="forumPage">
           <div className="forumPage--intro">
