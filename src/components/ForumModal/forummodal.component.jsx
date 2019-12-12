@@ -13,8 +13,8 @@ class ForumModal extends React.Component {
             theme: "",
             discussion: [],
             likes: 0,
-            user_name: "Pedro Alencar",
-            liked: false
+            liked: false,
+            user_name: "Pedro Alencar"
         };
     }
 
