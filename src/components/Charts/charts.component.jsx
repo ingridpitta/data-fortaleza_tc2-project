@@ -11,10 +11,10 @@ const Charts = props => {
     return [[("string", "bairro"), ("number", "renda")]].concat(rendaData);
   };
 
-  const getIgbeData = () => {
+  const getIbgeData = () => {
     console.log("layer selected", props.layerInfo);
-    const igbeData = props.ibge.features.map(variable => variable.properties);
-    const igbeFiltered = igbeData.filter(element => {
+    const ibgeData = props.ibge.features.map(variable => variable.properties);
+    const ibgeFiltered = ibgeData.filter(element => {
       return (
         element.NM_BAIRRO.toString()
           .normalize()
@@ -26,11 +26,11 @@ const Charts = props => {
       );
     });
 
-    console.log("ibge filtered", igbeFiltered);
-    return igbeFiltered;
+    console.log("ibge filtered", ibgeFiltered);
+    return ibgeFiltered;
   };
 
-  const formatIGBRData = data => {
+  const formatIBGEData = data => {
     return [
       [("string", "bairro"), ("number", "populacao"), ("number", "desidade")]
     ].concat(
@@ -46,30 +46,31 @@ const Charts = props => {
 
   return (
     <div className="charts">
-     <Chart
-                width={"300px"}
-                height={"300px"}
-                chartType="BarChart"
-                loader={<div>Loading Chart</div>}
-                data={getRendaData()}
-                options={{
-                    title: "Renda Média",
-                    chartArea: {width: "600px"},
-                    isStacked: true,
-                    colors: ["#FF0058", "#FF0058"],
-                    hAxis: {
-                        title: "renda",
-                        minValue: 0,
-                        maxValue: 3
-                    },
-                    vAxis: {
-                        title: "bairro"
-                    }
-                }}
-                // For tests
-                rootProps={{"data-testid": "1"}}
-            />
-      {getIgbeData().map(result => {
+      <Chart
+        width={"300px"}
+        height={"300px"}
+        chartType="BarChart"
+        loader={<div>Loading Chart</div>}
+        data={getRendaData()}
+        options={{
+          title: "Renda Média",
+          chartArea: { width: "600px" },
+          isStacked: true,
+          colors: ["#FF0058", "#FF0058"],
+          hAxis: {
+            title: "renda",
+            minValue: 0,
+            maxValue: 3
+          },
+          vAxis: {
+            title: "bairro"
+          }
+        }}
+        // For tests
+        rootProps={{ "data-testid": "1" }}
+      />
+
+      {getIbgeData().map(result => {
         return (
           <Chart
             key={result.ID}
@@ -77,7 +78,7 @@ const Charts = props => {
             height={"300px"}
             chartType="BarChart"
             loader={<div>Loading Chart</div>}
-            data={formatIGBRData([result])}
+            data={formatIBGEData([result])}
             options={{
               title: "IGBE",
               chartArea: { width: "300px" },
