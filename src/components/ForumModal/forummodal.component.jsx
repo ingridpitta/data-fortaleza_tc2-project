@@ -10,8 +10,8 @@ class ForumModal extends React.Component {
         this.state = {
             title: "",
             description: "",
-            theme: "",
-            discussion: [],
+            tag: "",
+            discussion: ["comentario1", "comentario2"],
             likes: 0,
             user_name: "Fulano",
             user_profile: "https://www.hypeness.com.br/wp-content/uploads/2019/04/Machado_Negro_3.jpg"
@@ -30,7 +30,7 @@ class ForumModal extends React.Component {
         firestore.collection(forumPath).add({
             title: this.state.title,
             description: this.state.description,
-            themes: this.state.theme.split(", "),
+            tag: this.state.tag,
             discussion: this.state.discussion,
             likes: this.state.likes,
             user_name: this.state.user_name,
@@ -45,9 +45,9 @@ class ForumModal extends React.Component {
         this.setState({
             title: "",
             description: "",
-            theme: ""
+            theme: "",
+            tag: ""
         });
-
     };
 
     render() {
@@ -81,7 +81,7 @@ class ForumModal extends React.Component {
                                    name="theme"
                                    maxLength="100"
                                    onChange={this.updateTitleInput}
-                                   value={this.state.theme}
+                                   value={this.state.tag}
                             />
                             <span>Informe a categoria do seu tópico</span>
                         </li>

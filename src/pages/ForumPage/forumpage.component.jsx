@@ -10,7 +10,6 @@ import Nav from "../../components/Nav/nav.component";
 import NavigationSchema from "../../components/NavigationSchema/navigationschema.component";
 import "./forumpage.styles.scss";
 import {firestore, forumPath} from "../../firebase/firebase.utils";
-import * as firebase from "firebase";
 import ForumUiModel from "../../components/ForumModal/forum.ui.model";
 
 class ForumPage extends Component {
@@ -25,21 +24,24 @@ class ForumPage extends Component {
 
     componentDidMount() {
         const callback = this.assembleForumUiModel;
+        console.clear();
         firestore
             .collection(forumPath)
             .get()
             .then(function (docsRef) {
-                console.log("loaded documents: ", docsRef);
-                callback(docsRef)
+                console.log("loaded documents: ", docsRef.docs);
+                let uiModels = docsRef.docs.map((item) => new ForumUiModel(item));
+                callback(uiModels);
             }).catch(function (error) {
             console.error("Error adding document: ", error);
         }).finally({});
     }
 
     assembleForumUiModel = (firebaseDocsRef) => {
+        console.log("uiModels: ", firebaseDocsRef);
         this.setState({
-            formList: firebaseDocsRef.docs.map(item => (new ForumUiModel(item)))
-        });
+            formList: firebaseDocsRef
+        })
     };
 
     showModal = (e) => {
@@ -60,7 +62,7 @@ class ForumPage extends Component {
                             opacity: "0.5",
                             maxWidth: "100vw",
                             width: "100%",
-                            height: "156vh",
+                            height: "157vh",
                             position: "absolute",
                             top: "0",
                             bottom: "0"
