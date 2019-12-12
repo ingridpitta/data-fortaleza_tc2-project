@@ -1,10 +1,4 @@
 import React, {Component} from "react";
-import User01 from "../../assets/img/user_01.svg";
-import User02 from "../../assets/img/user_02.svg";
-import User03 from "../../assets/img/user_03.svg";
-import CommentIcon from "../../assets/img/commentIcon.png";
-import LikedIcon from "../../assets/img/likedIcon.png";
-import LikeIcon from "../../assets/img/likeIcon.png";
 import ForumModal from "../../components/ForumModal/forummodal.component";
 import Nav from "../../components/Nav/nav.component";
 import NavigationSchema from "../../components/NavigationSchema/navigationschema.component";
@@ -19,11 +13,15 @@ class ForumPage extends Component {
 
         this.state = {
             show: false,
-            formList: []
+            forumListData: []
         };
     }
 
     componentDidMount() {
+        this.fetchData()
+    }
+
+    fetchData() {
         const callback = this.assembleForumUiModel;
         firestore
             .collection(forumPath)
@@ -39,17 +37,21 @@ class ForumPage extends Component {
     assembleForumUiModel = (firebaseDocsRef) => {
         console.log("uiModels: ", firebaseDocsRef);
         this.setState({
-            formList: firebaseDocsRef
+            forumListData: firebaseDocsRef
         })
     };
 
     showModal = (e) => {
-        // e.preventDefault();
         this.setState({show: !this.state.show});
     };
 
+    closeModal = (e) => {
+        this.fetchData();
+        this.showModal();
+    };
+
     render() {
-        const {show, liked} = this.state;
+        const {show} = this.state;
         return (
             <React.Fragment>
                 <Nav/>
@@ -102,7 +104,7 @@ class ForumPage extends Component {
                         <div className="forumPage--main-content">
                             {show ? (
                                 <div style={{position: "absolute", top: "30%", left: "35%"}}>
-                                    <ForumModal show={show} close={this.showModal}/>
+                                    <ForumModal show={show} close={this.closeModal}/>
                                 </div>
                             ) : null}
                             <ul className="forumPage--list">
@@ -112,53 +114,22 @@ class ForumPage extends Component {
                                     <li>Respostas</li>
                                 </div>
                             </ul>
-                            <ForumPost
-                                img={User01}
-                                alt="user01"
-                                title="Oficina de Fotografia no Dia das Crianças"
-                                text="Tópico para pensar uma oficina de fotografia no Dia das
-                      Crianças (12.10). Precisamos de voluntários para ajudar
-                      com a produção, conseguir material, divulgação,
-                      professores, alimentação, etc. Ainda precisamos definir o
-                      local do evento."
-                                author="Por Matheus - há 10min"
-                                tag="EVENTOS"
-                                answers="180"
-                                likes="100"
-                                liked={true}
-                            />
-
-                            <ForumPost
-                                img={User02}
-                                alt="user02"
-                                title="Reforma Praça do João XXIII"
-                                text="Os moradores do João XXIII estão fazendo uma pesquisa de
-                      opinião pública e coletando assinaturas para solicitar a
-                      reforma da pracinha do bairro. Pedimos que ajudem e votem
-                      - na aba opine - para nos ajudar. Aqui também podemos
-                      discutir outras medidas a serem tomadas."
-                                author="Por Amanda - há 1hora"
-                                tag="LAZER"
-                                answers="200"
-                                likes="240"
-                                liked={false}
-                            />
-
-                            <ForumPost
-                                img={User03}
-                                alt="user03"
-                                title="UPA do Jangurussu"
-                                text="A UPA do Jangurussu segue com atendimento precário e com
-                      poucos médicos. Por vezes não conseguimos atendimento ou
-                      medicamentos e semana passada um garoto morreu na fila. É
-                      muito descaso, precisamos discutir como reagir a essa
-                      situação."
-                                author="Por Bárbara - há 2horas"
-                                tag="SAÚDE"
-                                answers="150"
-                                likes="120"
-                                liked={true}
-                            />
+                            {this.state.forumListData.map((element) => {
+                                return (
+                                    <ForumPost
+                                        key={element.id}
+                                        img={element.imageUrl}
+                                        alt={element.getAuthor()}
+                                        title={element.title}
+                                        text={element.description}
+                                        author={element.author}
+                                        tag={element.tag}
+                                        answers={element.answersCount}
+                                        likes={element.likesCount}
+                                        liked={element.liked}
+                                    />
+                                );
+                            })}
                             <div className="forumPage--pagination">
                                 <ul className="paginationList">
                                     <li>{"<"}</li>

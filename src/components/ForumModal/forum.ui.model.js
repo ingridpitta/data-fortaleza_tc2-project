@@ -8,6 +8,7 @@ class ForumUiModel {
     tag;
     title;
     author;
+    liked;
 
     constructor(props) {
         this.id = props.id;
@@ -18,6 +19,7 @@ class ForumUiModel {
         this.description = this.getDescription();
         this.title = this.getTitle();
         this.tag = this.getTag();
+        this.liked = this.getLiked();
         this.author = this.getAuthor() + " - " + this.getTime();
     }
 
@@ -27,11 +29,13 @@ class ForumUiModel {
 
     getLikesCount = () => this.docData.likes;
 
-    getDescription = () => toCamelCaseString(this.docData.description);
+    getDescription = () => this.docData.description;
 
     getTitle = () => toCamelCaseString(this.docData.title);
 
     getTag = () => this.docData.tag.toUpperCase();
+
+    getLiked = () => this.docData.liked;
 
     getAuthor = () => "Por " + this.docData.user_name;
 
@@ -66,7 +70,7 @@ function toCamelCase(inputArray) {
     return result;
 }
 
-export function toCamelCaseString(input) {
+function toCamelCaseString(input) {
     return toCamelCase(toWords(input))
 }
 

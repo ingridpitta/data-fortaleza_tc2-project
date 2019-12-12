@@ -14,7 +14,8 @@ class ForumModal extends React.Component {
             discussion: ["comentario1", "comentario2"],
             likes: 0,
             user_name: "Fulano",
-            user_profile: "https://www.hypeness.com.br/wp-content/uploads/2019/04/Machado_Negro_3.jpg"
+            user_profile: "https://www.hypeness.com.br/wp-content/uploads/2019/04/Machado_Negro_3.jpg",
+            liked: false
         };
     }
 
@@ -35,7 +36,8 @@ class ForumModal extends React.Component {
             likes: this.state.likes,
             user_name: this.state.user_name,
             user_profile: this.state.user_profile,
-            createdAt: firebase.firestore.FieldValue.serverTimestamp()
+            createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+            liked: this.state.liked
         }).then(function (docRef) {
             console.log("Document written with ID: ", docRef.id);
         }).catch(function (error) {
