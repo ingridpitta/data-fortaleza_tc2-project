@@ -22,22 +22,28 @@ const Charts = (props) => {
         });
 
         console.log("ibge filtered", igbeFiltered);
-        return [[("string", "bairro"), ("number", "populacao")]].concat(
-            igbeFiltered.map(variable => [variable.NM_BAIRRO, variable.populacao])
+        return igbeFiltered;
+    };
+
+    const formatIGBRData = (data) => {
+        return [[("string", "bairro"), ("number", "populacao"), ("number", "desidade")]].concat(
+            // ("number", "V001"), ("number", "V002"), ("number", "V003"), ("number", "V004"), ("number", "V005"), ("number", "V006"), ("number", "V007"), ("number", "V008"), ("number", "V009"), ("number", "V010"), ("number", "V011"), ("number", "V012")]].concat(
+            data.map(variable => [variable.NM_BAIRRO, variable.populacao, variable.densidade])
+                // variable.V001, variable.V002, variable.V003, variable.V004, variable.V005, variable.V006, variable.V007, variable.V008, variable.V009, variable.V010, variable.V011, variable.V012])
         );
     };
 
     return (
         <div className="charts">
             <Chart
-                width={"300px"}
-                height={"300px"}
+                width={"600px"}
+                height={"600px"}
                 chartType="BarChart"
                 loader={<div>Loading Chart</div>}
                 data={getRendaData()}
                 options={{
                     title: "Renda Média",
-                    chartArea: {width: "300px"},
+                    chartArea: {width: "600px"},
                     isStacked: true,
                     colors: ["#FF0058", "#FF0058"],
                     hAxis: {
@@ -53,16 +59,16 @@ const Charts = (props) => {
                 rootProps={{"data-testid": "1"}}
             />
             <Chart
-                width={"300px"}
-                height={"300px"}
+                width={"600px"}
+                height={"600px"}
                 chartType="BarChart"
                 loader={<div>Loading Chart</div>}
-                data={getIgbeData()}
+                data={formatIGBRData(getIgbeData())}
                 options={{
                     title: "IGBE",
-                    chartArea: {width: "300px"},
+                    chartArea: {width: "600px"},
                     isStacked: true,
-                    colors: ["#FF0058", "#FF0058"],
+                    colors: ["#FF0058", "#0620ff"],
                     hAxis: {
                         title: "renda",
                         minValue: 0,
@@ -75,7 +81,34 @@ const Charts = (props) => {
                 // For tests
                 rootProps={{"data-testid": "1"}}
             />
-            );
+            {getIgbeData().map((result) => {
+                return (
+                    <Chart
+                        key={result.ID}
+                        width={"300px"}
+                        height={"300px"}
+                        chartType="BarChart"
+                        loader={<div>Loading Chart</div>}
+                        data={formatIGBRData([result])}
+                        options={{
+                            title: "IGBE",
+                            chartArea: {width: "300px"},
+                            isStacked: true,
+                            colors: ["#FF0058", "#0620ff"],
+                            hAxis: {
+                                title: "dados",
+                                minValue: 0,
+                                maxValue: 1000
+                            },
+                            vAxis: {
+                                title: "bairro"
+                            }
+                        }}
+                        // For tests
+                        rootProps={{"data-testid": "1"}}
+                    />
+                );
+            })}
         </div>
     )
 };
