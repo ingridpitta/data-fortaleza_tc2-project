@@ -11,10 +11,9 @@ class ForumModal extends React.Component {
             title: "",
             description: "",
             theme: "",
-            discussion: ["comentario1", "comentario2"],
+            discussion: [],
             likes: 0,
             user_name: "Fulano",
-            user_profile: "https://www.hypeness.com.br/wp-content/uploads/2019/04/Machado_Negro_3.jpg",
             liked: false
         };
     }
@@ -35,7 +34,7 @@ class ForumModal extends React.Component {
             discussion: this.state.discussion,
             likes: this.state.likes,
             user_name: this.state.user_name,
-            user_profile: this.state.user_profile,
+            user_profile: 3,
             createdAt: firebase.firestore.FieldValue.serverTimestamp(),
             liked: this.state.liked
         }).then(function (docRef) {

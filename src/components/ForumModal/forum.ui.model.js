@@ -1,7 +1,13 @@
+import User01 from "../../assets/img/user_01.svg";
+import User02 from "../../assets/img/user_02.svg";
+import User03 from "../../assets/img/user_03.svg";
+import ProfilePicture from "../../assets/img/profilePicture.svg";
+
+const IMAGES = [User01, User02, User03, ProfilePicture];
+
 class ForumUiModel {
     docData;
     id;
-    imageUrl;
     answersCount;
     likesCount;
     description;
@@ -13,17 +19,16 @@ class ForumUiModel {
     constructor(props) {
         this.id = props.id;
         this.docData = props.data();
-        this.imageUrl = this.getImageUrl();
         this.answersCount = this.getAnswersCount();
         this.likesCount = this.getLikesCount();
         this.description = this.getDescription();
         this.title = this.getTitle();
         this.tag = this.getTag();
         this.liked = this.getLiked();
-        this.author = this.getAuthor() + " - " + this.getTime();
+        this.author = this.getAuthor() + " - " + this.getTime().toLocaleString();
     }
 
-    getImageUrl = () => this.docData.user_profile;
+    getImageUrl = () => IMAGES[this.docData.user_profile];
 
     getAnswersCount = () => this.docData.discussion.length;
 
@@ -39,8 +44,7 @@ class ForumUiModel {
 
     getAuthor = () => "Por " + this.docData.user_name;
 
-    getTime = () => this.docData.createdAt.toDate().toLocaleString();
-
+    getTime = () => this.docData.createdAt.toDate();
 }
 
 function convertToString(input) {

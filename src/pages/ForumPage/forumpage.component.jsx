@@ -37,7 +37,7 @@ class ForumPage extends Component {
     assembleForumUiModel = (firebaseDocsRef) => {
         console.log("uiModels: ", firebaseDocsRef);
         this.setState({
-            forumListData: firebaseDocsRef
+            forumListData: firebaseDocsRef.sort((a, b) => b.getTime() - a.getTime())
         })
     };
 
@@ -118,7 +118,7 @@ class ForumPage extends Component {
                                 return (
                                     <ForumPost
                                         key={element.id}
-                                        img={element.imageUrl}
+                                        img={element.getImageUrl()}
                                         alt={element.getAuthor()}
                                         title={element.title}
                                         text={element.description}

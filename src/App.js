@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage/homepage.component";
 import MapPage from "./pages/MapPage/mappage.component";
 import ForumPage from "./pages/ForumPage/forumpage.component";
-import OpinionPage from "./pages/OpinionPage/opinionPage.component";
+import OpinionPage from "./pages/OpinionPage/opinionpage.component";
 import ScorePage from "./pages/ScorePage/scorepage.component";
 import ComplaintPage from "./pages/ComplaintPage/complaintpage.component";
 import LoginPage from "./pages/LoginPage/loginpage.component";
