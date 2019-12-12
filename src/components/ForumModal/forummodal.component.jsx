@@ -11,11 +11,10 @@ class ForumModal extends React.Component {
             title: "",
             description: "",
             theme: "",
-            discussion: ["comentario1", "comentario2"],
+            discussion: [],
             likes: 0,
             liked: false,
-            user_name: "Pedro Alencar",
-            user_profile: "../../assets/img/profilePicture.svg"
+            user_name: "Pedro Alencar"
         };
     }
 
@@ -35,7 +34,7 @@ class ForumModal extends React.Component {
             discussion: this.state.discussion,
             likes: this.state.likes,
             user_name: this.state.user_name,
-            user_profile: this.state.user_profile,
+            user_profile: 3,
             createdAt: firebase.firestore.FieldValue.serverTimestamp(),
             liked: this.state.liked
         }).then(function (docRef) {
