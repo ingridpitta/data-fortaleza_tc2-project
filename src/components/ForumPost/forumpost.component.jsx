@@ -5,9 +5,9 @@ import LikeIcon from "../../assets/img/likeIcon.png";
 import './forumpost.styles.scss';
 
 
-const ForumPost = ({img, alt, title, text, author, tag, answers, likes, liked}) => (
+const ForumPost = ({id, img, alt, title, text, author, tag, answers, likes, liked}) => (
     <div className="forumPage--content-discussion">
-    <div className="forumPage--discussion-topic">
+    <div className="forumPage--discussion-topic" id={id}>
                   <img src={img} alt={alt} />
                   <div className="forumPage--topic-description">
                     <h3>{title}</h3>
