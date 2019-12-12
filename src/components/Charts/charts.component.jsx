@@ -1,105 +1,112 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import Chart from "react-google-charts";
 import "./charts.styles.scss";
 
 const Charts = props => {
-  const getRendaData = () => {
-    const rendaData = props.rendaMedia.features.map(variable => [
-      variable.properties.NOME,
-      parseFloat(variable.properties.RENDA_M)
-    ]);
-    return [[("string", "bairro"), ("number", "renda")]].concat(rendaData);
-  };
+    const getAllRendaData = () => {
+        const rendaData = props.rendaMedia.features.map(variable => [
+            variable.properties.NOME,
+            parseFloat(variable.properties.RENDA_M)
+        ]);
+        return [["bairro", "renda"]].concat(rendaData);
+    };
 
-  const getIbgeData = () => {
-    console.log("layer selected", props.layerInfo);
-    const ibgeData = props.ibge.features.map(variable => variable.properties);
-    const ibgeFiltered = ibgeData.filter(element => {
-      return (
-        element.NM_BAIRRO.toString()
-          .normalize()
-          .toUpperCase() ===
-        props.layerInfo.name
-          .toString()
-          .normalize()
-          .toUpperCase()
-      );
-    });
+    const getIbgeData = () => {
+        console.log("layer selected", props.layerInfo);
+        const ibgeData = props.ibge.features.map(variable => variable.properties);
+        const ibgeFiltered = ibgeData.filter(element => {
+            return (
+                element.NM_BAIRRO.toString()
+                    .normalize()
+                    .toUpperCase() ===
+                props.layerInfo.name
+                    .toString()
+                    .normalize()
+                    .toUpperCase()
+            );
+        });
 
-    console.log("ibge filtered", ibgeFiltered);
-    return ibgeFiltered;
-  };
+        console.log("ibge filtered", ibgeFiltered);
+        return ibgeFiltered;
+    };
 
-  const formatIBGEData = data => {
-    return [
-      [("string", "bairro"), ("number", "populacao"), ("number", "desidade")]
-    ].concat(
-      // ("number", "V001"), ("number", "V002"), ("number", "V003"), ("number", "V004"), ("number", "V005"), ("number", "V006"), ("number", "V007"), ("number", "V008"), ("number", "V009"), ("number", "V010"), ("number", "V011"), ("number", "V012")]].concat(
-      data.map(variable => [
-        variable.NM_BAIRRO,
-        variable.populacao,
-        variable.densidade
-      ])
-      // variable.V001, variable.V002, variable.V003, variable.V004, variable.V005, variable.V006, variable.V007, variable.V008, variable.V009, variable.V010, variable.V011, variable.V012])
-    );
-  };
-
-  return (
-    <div className="charts">
-      <Chart
-        width={"300px"}
-        height={"300px"}
-        chartType="BarChart"
-        loader={<div>Loading Chart</div>}
-        data={getRendaData()}
-        options={{
-          title: "Renda Média",
-          chartArea: { width: "600px" },
-          isStacked: true,
-          colors: ["#FF0058", "#FF0058"],
-          hAxis: {
-            title: "renda",
-            minValue: 0,
-            maxValue: 3
-          },
-          vAxis: {
-            title: "bairro"
-          }
-        }}
-        // For tests
-        rootProps={{ "data-testid": "1" }}
-      />
-
-      {getIbgeData().map(result => {
-        return (
-          <Chart
-            key={result.ID}
-            width={"300px"}
-            height={"300px"}
-            chartType="BarChart"
-            loader={<div>Loading Chart</div>}
-            data={formatIBGEData([result])}
-            options={{
-              title: "IGBE",
-              chartArea: { width: "300px" },
-              isStacked: true,
-              colors: ["#FF0058", "#0620ff"],
-              hAxis: {
-                title: "dados",
-                minValue: 0,
-                maxValue: 1000
-              },
-              vAxis: {
-                title: "bairro"
-              }
-            }}
-            // For tests
-            rootProps={{ "data-testid": "1" }}
-          />
+    const formatIBGEData = data => {
+        return [
+            [("string", "bairro"), ("number", "populacao"), ("number", "desidade")]
+        ].concat(
+            data.map(variable => [
+                variable.NM_BAIRRO,
+                variable.populacao,
+                variable.densidade
+            ])
         );
-      })}
-    </div>
-  );
+    };
+
+    const renderAll = () => {
+        return (
+            <Chart
+                width={"620px"}
+                height={"650px"}
+                chartType="BarChart"
+                loader={<div style={{width: 620}}>Carregando Dados</div>}
+                data={getAllRendaData()}
+                options={{
+                    title: "Renda Média por Bairros",
+                    chartArea: {width: "30%"},
+                    isStacked: false,
+                    colors: ["#FF0058", "#FF0058"],
+                    hAxis: {
+                        title: "renda per capita",
+                        minValue: 0
+                    },
+                    vAxis: {
+                        title: "bairro"
+                    }
+                }}
+            />
+        );
+    };
+
+    const renderSelection = () => {
+        return (
+            getIbgeData().map(result => {
+                return (
+                    <div className="charts">
+                        <Chart
+                            key={result.ID}
+                            width={"450px"}
+                            height={"300px"}
+                            chartType="BarChart"
+                            loader={<div>Loading Chart</div>}
+                            data={formatIBGEData([result])}
+                            options={{
+                                title: "IGBE",
+                                chartArea: {width: "450px"},
+                                isStacked: true,
+                                colors: ["#FF0058", "#0620ff"],
+                                hAxis: {
+                                    title: "dados",
+                                    minValue: 0,
+                                    maxValue: 1000
+                                },
+                                vAxis: {
+                                    title: "bairro"
+                                }
+                            }}
+                            // For tests
+                            rootProps={{"data-testid": "1"}}
+                        />
+                    </div>
+                );
+            })
+        );
+    };
+
+    return (
+        <div style={{maxWidth: 620}}>
+            {props.layerInfo ? renderSelection() : renderAll()}
+        </div>
+    );
 };
 
 export default Charts;
