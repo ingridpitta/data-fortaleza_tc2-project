@@ -13,7 +13,7 @@ class ForumModal extends React.Component {
             theme: "",
             discussion: ["comentario1", "comentario2"],
             likes: 0,
-            liked: false
+            liked: false,
             user_name: "Pedro Alencar",
             user_profile: "../../assets/img/profilePicture.svg"
         };
