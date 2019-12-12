@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import User01 from "../../assets/img/user_01.svg";
 import User02 from "../../assets/img/user_02.svg";
 import User03 from "../../assets/img/user_03.svg";
@@ -10,20 +10,45 @@ import Nav from "../../components/Nav/nav.component";
 import NavigationSchema from "../../components/NavigationSchema/navigationschema.component";
 import ForumPost from "../../components/ForumPost/forumpost.component";
 import "./forumpage.styles.scss";
+import {firestore, forumPath} from "../../firebase/firebase.utils";
+import ForumUiModel from "../../components/ForumModal/forum.ui.model";
 
 class ForumPage extends Component {
-  constructor() {
-    super();
+    constructor() {
+        super();
 
-    this.state = {
-      show: false
+        this.state = {
+            show: false,
+            formList: []
+        };
+    }
+
+    componentDidMount() {
+        const callback = this.assembleForumUiModel;
+        console.clear();
+        firestore
+            .collection(forumPath)
+            .get()
+            .then(function (docsRef) {
+                console.log("loaded documents: ", docsRef.docs);
+                let uiModels = docsRef.docs.map((item) => new ForumUiModel(item));
+                callback(uiModels);
+            }).catch(function (error) {
+            console.error("Error adding document: ", error);
+        }).finally({});
+    }
+
+    assembleForumUiModel = (firebaseDocsRef) => {
+        console.log("uiModels: ", firebaseDocsRef);
+        this.setState({
+            formList: firebaseDocsRef
+        })
     };
-  }
 
-  showModal = (e) => {
-    e.preventDefault();
-    this.setState({ show: !this.state.show });
-  };
+    showModal = (e) => {
+        // e.preventDefault();
+        this.setState({show: !this.state.show});
+    };
 
   render() {
     const { show, liked} = this.state;

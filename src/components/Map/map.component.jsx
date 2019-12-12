@@ -65,7 +65,7 @@ class MapComponent extends Component {
       click: this.infos
     });
   };
-      
+
   render() {
     console.log("dadosState", this.state.layerInfo)
     const { bairrosFortaleza, rendaMedia, ibge} = this.props;
