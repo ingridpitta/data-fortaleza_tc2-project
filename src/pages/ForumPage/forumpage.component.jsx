@@ -1,15 +1,19 @@
-import React, {Component} from "react";
+
+import React, { Component } from "react";
+import User01 from "../../assets/img/user_01.svg";
+import User02 from "../../assets/img/user_02.svg";
+import User03 from "../../assets/img/user_03.svg";
 import ForumModal from "../../components/ForumModal/forummodal.component";
 import Nav from "../../components/Nav/nav.component";
 import NavigationSchema from "../../components/NavigationSchema/navigationschema.component";
 import ForumPost from "../../components/ForumPost/forumpost.component";
 import "./forumpage.styles.scss";
-import {firestore, forumPath} from "../../firebase/firebase.utils";
+import { firestore, forumPath } from "../../firebase/firebase.utils";
 import ForumUiModel from "../../components/ForumModal/forum.ui.model";
 
 class ForumPage extends Component {
-    constructor() {
-        super();
+  constructor() {
+    super();
 
         this.state = {
             show: false,
@@ -51,7 +55,7 @@ class ForumPage extends Component {
     };
 
     render() {
-        const {show} = this.state;
+        const {show, forumListData} = this.state;
         return (
             <React.Fragment>
                 <Nav/>
@@ -114,7 +118,7 @@ class ForumPage extends Component {
                                     <li>Respostas</li>
                                 </div>
                             </ul>
-                            {this.state.forumListData.map((element) => {
+                            {forumListData.map((element) => {
                                 return (
                                     <ForumPost
                                         key={element.id}
