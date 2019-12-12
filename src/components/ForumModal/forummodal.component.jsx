@@ -1,35 +1,99 @@
 import React from "react";
 import "./forummodal.styles.scss";
+import {firestore, forumPath} from "../../firebase/firebase.utils";
+import * as firebase from "firebase";
 
-const ForumModal = ({close}) => (
-  <div className="forumModal">
-    <h1>Faça uma Publicação</h1>
-    <form className="form-style-7">
-      <ul>
-        <li>
-          <label for="title">TÍTULO</label>
-          <input type="text" name="title" maxlength="100" />
-          <span>Crie um título</span>
-        </li>
-        <li>
-          <label for="description">DESCRIÇÃO</label>
-          <textarea
-            name="description"
-            onkeyup="adjust_textarea(this)"
-          ></textarea>
-          <span>Descreva seu tópico</span>
-        </li>
-        <li>
-          <label for="theme">CATEGORIA</label>
-          <input type="text" name="theme" maxlength="100" />
-          <span>Informe a categoria do seu tópico</span>
-        </li>
-        <li>
-          <input type="submit" value="PUBLICAR" onClick={close}/>
-        </li>
-      </ul>
-    </form>
-  </div>
-);
+class ForumModal extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            title: "",
+            description: "",
+            tag: "",
+            discussion: ["comentario1", "comentario2"],
+            likes: 0,
+            user_name: "Fulano",
+            user_profile: "https://www.hypeness.com.br/wp-content/uploads/2019/04/Machado_Negro_3.jpg"
+        };
+    }
+
+    updateTitleInput = e => {
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    };
+
+    addForum = e => {
+        e.preventDefault();
+
+        firestore.collection(forumPath).add({
+            title: this.state.title,
+            description: this.state.description,
+            tag: this.state.tag,
+            discussion: this.state.discussion,
+            likes: this.state.likes,
+            user_name: this.state.user_name,
+            user_profile: this.state.user_profile,
+            createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        }).then(function (docRef) {
+            console.log("Document written with ID: ", docRef.id);
+        }).catch(function (error) {
+            console.error("Error adding document: ", error);
+        }).finally(this.props.close);
+
+        this.setState({
+            title: "",
+            description: "",
+            theme: "",
+            tag: ""
+        });
+    };
+
+    render() {
+        return (
+            <div className="forumModal">
+                <h1>Faça uma Publicação</h1>
+                <form className="form-style-7" onSubmit={this.addForum}>
+                    <ul>
+                        <li>
+                            <label htmlFor="title">TÍTULO</label>
+                            <input type="text"
+                                   name="title"
+                                   maxLength="100"
+                                   onChange={this.updateTitleInput}
+                                   value={this.state.title}
+                            />
+                            <span>Crie um título</span>
+                        </li>
+                        <li>
+                            <label htmlFor="description">DESCRIÇÃO</label>
+                            <textarea
+                                name="description"
+                                onChange={this.updateTitleInput}
+                                value={this.state.description}
+                            />
+                            <span>Descreva seu tópico</span>
+                        </li>
+                        <li>
+                            <label htmlFor="theme">CATEGORIA</label>
+                            <input type="text"
+                                   name="theme"
+                                   maxLength="100"
+                                   onChange={this.updateTitleInput}
+                                   value={this.state.tag}
+                            />
+                            <span>Informe a categoria do seu tópico</span>
+                        </li>
+                        <li>
+                            <button type="submit">PUBLICAR</button>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        )
+    }
+
+}
 
 export default ForumModal;

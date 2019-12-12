@@ -142,3 +142,17 @@
     background: $cor-secundaria;
     color: $white;
 }
+.form-style-7 button[type="submit"]{
+	background: none;
+	border: 1px solid $cor-secundaria;
+	padding: 10px 20px 10px 20px;
+	border-radius: 3px;
+    color: $cor-secundaria;
+    outline: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+.form-style-7 button[type="submit"]:hover{
+    background: $cor-secundaria;
+    color: $white;
+}
