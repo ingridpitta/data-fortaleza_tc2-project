@@ -12,9 +12,7 @@ class MapComponent extends Component {
             lat: -3.770398,
             lng: -38.524604,
             zoom: 11,
-            layerInfo: {
-                name: ""
-            }
+            layerInfo: null
         };
     }
 
@@ -76,14 +74,12 @@ class MapComponent extends Component {
             <React.Fragment>
                 <div
                     className="mapid"
-                    style={{display: "flex", width: "50%", marginLeft: "0"}}
-                >
+                    style={{display: "flex", width: "50%", marginLeft: "0"}}>
                     <Map
                         center={position}
                         zoom={this.state.zoom}
                         scrollWheelZoom={false}
-                        editing={true}
-                    >
+                        editing={true}>
                         <TileLayer
                             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
