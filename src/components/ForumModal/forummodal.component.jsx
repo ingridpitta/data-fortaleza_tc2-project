@@ -13,6 +13,7 @@ class ForumModal extends React.Component {
             theme: "",
             discussion: ["comentario1", "comentario2"],
             likes: 0,
+            liked: false
             user_name: "Pedro Alencar",
             user_profile: "../../assets/img/profilePicture.svg"
         };
@@ -35,7 +36,8 @@ class ForumModal extends React.Component {
             likes: this.state.likes,
             user_name: this.state.user_name,
             user_profile: this.state.user_profile,
-            createdAt: firebase.firestore.FieldValue.serverTimestamp()
+            createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+            liked: this.state.liked
         }).then(function (docRef) {
             console.log("Document written with ID: ", docRef.id);
         }).catch(function (error) {
