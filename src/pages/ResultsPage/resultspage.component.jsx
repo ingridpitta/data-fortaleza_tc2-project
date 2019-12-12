@@ -12,6 +12,10 @@ const ResultsPage = () => (
     <Nav />
     <NavigationSchema />
     <div className="resultsPage">
+      <div className="resultsPage--title">
+        <h1>Veja os Resultados das Pesquisas Anteriores</h1>
+        <h3>Clique nos cards para mais informações.</h3>
+      </div>
       <div className="resultsPage--content">
         <div className="resultsPage--card">
           <div className="imageCard">
@@ -24,11 +28,15 @@ const ResultsPage = () => (
             Você acha que poderia ter um projeto alternativo, melhor do que o
             proposto?
           </p>
-          <div className="imageCard--graphic">
+          {/*<div className="imageCard--graphic">
             <img src={Graphic} alt="gráfico dos resultados" />
+          </div>*/}
+          <div className="imageCard--btn">
+            <button>VER</button>
           </div>
         </div>
-        <img src={MapImage} alt="mapa do resultado espacializado" />
+        {/* <img src={MapImage} alt="mapa do resultado espacializado" />
+         */}
       </div>
     </div>
   </React.Fragment>
