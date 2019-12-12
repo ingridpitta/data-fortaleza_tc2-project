@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React from "react";
 import Chart from "react-google-charts";
 import "./charts.styles.scss";
 
@@ -8,13 +8,14 @@ const Charts = props => {
             variable.properties.NOME,
             parseFloat(variable.properties.RENDA_M)
         ]);
-        return [["bairro", "renda"]].concat(rendaData);
+        return [["Bairro", "Renda per capita"]].concat(rendaData);
     };
 
     const getIbgeData = () => {
         console.log("layer selected", props.layerInfo);
         const ibgeData = props.ibge.features.map(variable => variable.properties);
-        const ibgeFiltered = ibgeData.filter(element => {
+
+        let data = ibgeData.filter(element => {
             return (
                 element.NM_BAIRRO.toString()
                     .normalize()
@@ -26,86 +27,124 @@ const Charts = props => {
             );
         });
 
-        console.log("ibge filtered", ibgeFiltered);
-        return ibgeFiltered;
+        if (data.length <= 0) {
+            data = null
+        }
+
+        return data
     };
 
-    const formatIBGEData = data => {
-        return [
-            [("string", "bairro"), ("number", "populacao"), ("number", "desidade")]
-        ].concat(
-            data.map(variable => [
-                variable.NM_BAIRRO,
-                variable.populacao,
-                variable.densidade
-            ])
-        );
+    const formatIBGEData = ibgeData => {
+        console.log("ibge data", ibgeData);
+
+        const bairroNome = ibgeData[0].NM_BAIRRO;
+
+        let rendaFortaleza = 0;
+        props.rendaMedia.features.forEach(variable => [
+            rendaFortaleza = rendaFortaleza + parseFloat(variable.properties.RENDA_M)
+        ]);
+        rendaFortaleza = rendaFortaleza / props.rendaMedia.features.length;
+
+        let rendaBairro = props.rendaMedia.features.filter(element => {
+            return (
+                element.properties.NOME.toString()
+                    .normalize()
+                    .toUpperCase() ===
+                props.layerInfo.name
+                    .toString()
+                    .normalize()
+                    .toUpperCase()
+            );
+        })[0];
+
+        let rendaChart = {
+            key: 1,
+            title: "Renda do Bairro/ Renda de Fortaleza",
+            data: [
+                ["Bairro", "Renda do Bairro", "Renda de Fortaleza"],
+                [bairroNome, parseFloat(rendaBairro.properties.RENDA_M), rendaFortaleza]
+            ]
+        };
+
+        let popBairro = 0;
+
+        ibgeData.forEach((variable) => {
+            popBairro = popBairro + variable.populacao;
+        });
+
+        console.log("popFortaleza", props.ibge);
+        let popFortaleza = 0;
+        props.ibge.features.forEach((variable) => {
+            popFortaleza = popFortaleza + variable.properties.populacao
+        });
+
+        let popChart = {
+            key: 2,
+            title: "Populacao do Bairro/ Populacao de Fortaleza",
+            data: [
+                ["Bairro", "Populacao do Bairro", "Populacao de Fortaleza"],
+                [bairroNome, popBairro, popFortaleza]
+            ]
+        };
+        return [rendaChart, popChart];
     };
 
     const renderAll = () => {
         return (
-            <Chart
-                width={"620px"}
-                height={"650px"}
-                chartType="BarChart"
-                loader={<div style={{width: 620}}>Carregando Dados</div>}
-                data={getAllRendaData()}
-                options={{
-                    title: "Renda Média por Bairros",
-                    chartArea: {width: "30%"},
-                    isStacked: false,
-                    colors: ["#FF0058", "#FF0058"],
-                    hAxis: {
-                        title: "renda per capita",
-                        minValue: 0
-                    },
-                    vAxis: {
-                        title: "bairro"
-                    }
-                }}
-            />
+            <div style={{maxWidth: 200}}>
+                <Chart
+                    key={0}
+                    width={"400px"}
+                    height={"700px"}
+                    chartType="BarChart"
+                    loader={<div>Carregando Dados</div>}
+                    data={getAllRendaData()}
+                    options={{
+                        title: "Renda Média por Bairros",
+                        chartArea: {width: "30%"},
+                        isStacked: false,
+                        colors: ["#FF0058", "#FF0058"],
+                        hAxis: {
+                            title: "renda per capita",
+                            minValue: 0
+                        },
+                        vAxis: {
+                            title: "bairro"
+                        }
+                    }}
+                />
+            </div>
         );
     };
 
-    const renderSelection = () => {
+    const renderSelection = (data) => {
         return (
-            getIbgeData().map(result => {
+            formatIBGEData(data).map(result => {
                 return (
-                    <div className="charts">
-                        <Chart
-                            key={result.ID}
-                            width={"450px"}
-                            height={"300px"}
-                            chartType="BarChart"
-                            loader={<div>Loading Chart</div>}
-                            data={formatIBGEData([result])}
-                            options={{
-                                title: "IGBE",
-                                chartArea: {width: "450px"},
-                                isStacked: true,
-                                colors: ["#FF0058", "#0620ff"],
-                                hAxis: {
-                                    title: "dados",
-                                    minValue: 0,
-                                    maxValue: 1000
-                                },
-                                vAxis: {
-                                    title: "bairro"
-                                }
-                            }}
-                            // For tests
-                            rootProps={{"data-testid": "1"}}
-                        />
-                    </div>
+                    <Chart
+                        key={result.key}
+                        width={"300px"}
+                        height={"300px"}
+                        chartType="ColumnChart"
+                        loader={<div>Carregando Dados</div>}
+                        data={result.data}
+                        options={{
+                            title: result.title,
+                            chartArea: {width: "40%", height: "40%"},
+                            isStacked: false,
+                            colors: ["#FF0058", "#0620ff"],
+                        }}
+                    />
                 );
             })
         );
     };
 
     return (
-        <div style={{maxWidth: 620}}>
-            {props.layerInfo ? renderSelection() : renderAll()}
+        <div className="charts">
+            {props.layerInfo ? getIbgeData() ? renderSelection(getIbgeData()) : renderAll() : renderAll()}
         </div>
+
     );
 };
 
