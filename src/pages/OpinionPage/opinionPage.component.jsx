@@ -6,7 +6,7 @@ import NavigationSchema from "../../components/NavigationSchema/navigationschema
 import Ponte from "../../assets/img/ponteMetalica.jpeg";
 import Orla from "../../assets/img/orla.png";
 import Aquario from "../../assets/img/aquario.png";
-import "./opinionPage.styles.scss";
+import "./opinionpage.styles.scss";
 
 class OpinionPage extends Component {
   constructor() {
